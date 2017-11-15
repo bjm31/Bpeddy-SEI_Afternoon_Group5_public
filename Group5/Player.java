@@ -1,18 +1,18 @@
 public class Player {
 
-  public BufferedImage playerPortrait;
+  private BufferedImage playerPortrait;
 
-  public ArrayList<Region> regionList;
+  private ArrayList<Region> regionList;
 
-  public ArrayList<Item> itemList;
+  private ArrayList<Item> itemList;
 
-  public ArrayList<Force> forceList;
+  private ArrayList<Force> forceList;
 
-  public String gameDataFileName;
+  private String gameDataFileName;
 
-  public int experience;
+  private int experience;
 
-  public int currency;
+  private int currency;
 
   public void Player(BufferedImage playerPortrait, ArrayList<Region> regionList, ArrayList<Item> itemList, 
                      ArrayList<Force> forceList, String gameDataFileName, int experience, int currency) {
