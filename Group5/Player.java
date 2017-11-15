@@ -14,59 +14,59 @@ public class Player {
 
   public int currency;
 
-  public void Player( BufferedImage,  ArrayList<Region>,  ArrayList<Item>,  ArrayList<Force>,  int,  String,  int) {
+  public void Player(BufferedImage playerPortrait, ArrayList<Region> regionList, ArrayList<Item> itemList, 
+                     ArrayList<Force> forceList, String gameDataFileName, int experience, int currency) {
   }
 
-  public void changeWorldStanding( Region,  int) {
+  public void changeWorldStanding(Region region, int reputation) {
   }
 
   public BufferedImage getPlayerPortrait() {
-  return null;
+    return null;
   }
 
-  public void setPlayerPortrait( BufferedImage) {
+  public void setPlayerPortrait(BufferedImage playerPortrait) {
   }
 
   public ArrayList<Region> getRegionList() {
-  return null;
+    return null;
   }
 
-  public void setRegionList( ArrayList<Region>) {
+  public void setRegionList(ArrayList<Region> regionList) {
   }
 
   private ArrayList<item> getItemList() {
-  return null;
+    return null;
   }
 
-  public void setItemList( ArrayList<Item>) {
+  public void setItemList(ArrayList<Item> itemList) {
   }
 
   public ArrayList<Force> getForceList() {
-  return null;
+    return null;
   }
 
-  public void setForceList( ArrayList<Force>) {
+  public void setForceList(ArrayList<Force> forceList) {
   }
 
   public String getGameDataFileName() {
-  return null;
+    return null;
   }
 
-  public void setGameDataFileName( String) {
+  public void setGameDataFileName(String gameDataFileName) {
   }
 
   public int getExperience() {
-  return 0;
+    return 0;
   }
 
-  public void setExperience( int) {
+  public void setExperience(int experience) {
   }
 
   public int getCurrency() {
-  return 0;
+    return 0;
   }
 
-  public void setCurrency( int) {
+  public void setCurrency(int currency) {
   }
-
 }
