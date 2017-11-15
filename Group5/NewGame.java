@@ -2,17 +2,13 @@ import java.util.Vector;
 
 public class NewGame {
 
-  public PlayerSelection playerSelection;
+  private PlayerSelection playerSelection;
 
-  public Player player;
+  private Player player;
 
-  public ShipHubMenu shipHubMenu;
+  private ShipHubMenu shipHubMenu;
 
-    public Vector  myGameLaunch;
-    public Vector  myPlayerSelection;
-    public Vector  myGameLaunch;
-
-  public void NewGame( PlayerSelection,  Player,  ShipHubMenu) {
+  public void NewGame(PlayerSelection playerSelection, Player player,  ShipHubMenu shipHubMenu) {
   }
 
   public void createSaveData() {
@@ -22,18 +18,17 @@ public class NewGame {
   }
 
   public ShipHubMenu load() {
-  return null;
+    return null;
   }
 
   public void createNew() {
   }
 
   public PlayerSelection loadChoices() {
-  return null;
+    return null;
   }
 
   public Player saveCharacter() {
-  return null;
+   return null;
   }
-
 }
