@@ -1,13 +1,13 @@
 
 public class PlayerSelection {
 
-  public JFrame selectionFrame;
+  private JFrame selectionFrame;
 
-  public JButton choice1;
+  private JButton choice1;
 
-  public JButton choice2;
+  private JButton choice2;
 
-  public JButton choice3;
+  private JButton choice3;
 
   public BufferedImage PlayerSelection(JFrame,  JButton,  JButton,  JButton) {
     return null;
