@@ -1,27 +1,22 @@
-import java.util.Vector;
 
 public class AllyNPC extends MapItem {
 
-  public Force force;
+  private Force force;
 
-  public BufferedImage image;
+  private BufferedImage image;
 
-    public Vector  myMapNPC;
-    public Vector  myForce;
-    public Vector  myMapItem;
-
-  public void AllyNPC( int,  int,  BufferedImage,  Force) {
+  public void AllyNPC(int,  int,  BufferedImage,  Force) {
   }
 
   public Force recruitNPC() {
-  return null;
+    return null;
   }
 
   public Force getForce() {
-  return null;
+    return null;
   }
 
-  public void setForce( Force) {
+  public void setForce(Force force) {
   }
 
 }
