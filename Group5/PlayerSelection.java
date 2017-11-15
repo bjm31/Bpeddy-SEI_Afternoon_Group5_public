@@ -1,4 +1,3 @@
-import java.util.Vector;
 
 public class PlayerSelection {
 
@@ -10,38 +9,35 @@ public class PlayerSelection {
 
   public JButton choice3;
 
-    public Vector  myNewGame;
-
-  public BufferedImage PlayerSelection( JFrame,  JButton,  JButton,  JButton) {
-  return null;
+  public BufferedImage PlayerSelection(JFrame,  JButton,  JButton,  JButton) {
+    return null;
   }
 
   public JFrame getSelectionFrame() {
-  return null;
+    return null;
   }
 
-  public void setSelectionFrame( JFrame) {
+  public void setSelectionFrame(JFrame selectionFrame) {
   }
 
   public JButton getChoice1() {
-  return null;
+    return null;
   }
 
-  public void setChoice1( JButton) {
+  public void setChoice1(JButton choice1) {
   }
 
   public JButton getChoice2() {
-  return null;
+    return null;
   }
 
-  public void setChoice2( JButton) {
+  public void setChoice2(JButton choice2) {
   }
 
   public JButton getChoice3() {
-  return null;
+    return null;
   }
 
-  public void setChoice3( JButton) {
+  public void setChoice3(JButton choice3) {
   }
-
 }
