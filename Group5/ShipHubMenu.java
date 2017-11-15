@@ -1,46 +1,44 @@
-import java.util.Vector;
 
 public class ShipHubMenu {
 
-  public BufferedImage shipHubImage;
+  private BufferedImage shipHubImage;
 
-  public MissionSelection missionSelection;
+  private MissionSelection missionSelection;
 
-  public WorldStandingMenu worldStandingMenu;
+  private WorldStandingMenu worldStandingMenu;
 
-  public ForceSelection forceSelection;
+  private ForceSelection forceSelection;
 
-    public Vector  myLoadGame;
-
-  public void ShipHubMenu( BufferedImage,  MissionSelection,  WorldStandingMenu,  ForceSelection) {
+  public void ShipHubMenu(BufferedImage shipHubImage, MissionSelection missionSelection, WorldStandingMenu worldStandingMenu, 
+                          ForceSelection forceSelection) {
   }
 
   public BufferedImage getShipHubImage() {
-  return null;
+    return null;
   }
 
-  public void setShipHubMenu( BufferedImage) {
+  public void setShipHubMenu(BufferedImage shipHubMenu) {
   }
 
   public MissionSelection getMissionSelection() {
-  return null;
+    return null;
   }
 
-  public void setMissionSelection( MissionSelection) {
+  public void setMissionSelection(MissionSelection missionSelection) {
   }
 
   public WorldStandingMenu getWorldStandingMenu() {
-  return null;
+    return null;
   }
 
-  public void setWorldStandingMenu( WorldStandingMenu) {
+  public void setWorldStandingMenu(WorldStandingMenu worldStandingMenu) {
   }
 
   public ForceSelection getForceSelection() {
-  return null;
+    return null;
   }
 
-  public void setForceSelection( ForceSelection) {
+  public void setForceSelection(ForceSelection forceSelection) {
   }
 
   public void save() {
