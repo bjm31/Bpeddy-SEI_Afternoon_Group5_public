@@ -1,4 +1,3 @@
-import java.util.Vector;
 
 public class SaveGame {
 
@@ -9,8 +8,6 @@ public class SaveGame {
   public JFrame saveGameFrame;
 
   public JOptionPane saveGameOptions;
-
-    public Vector  myGameLaunch;
 
   public void SaveGame( String,  ShipHubMenu,  JFrame,  JOptionPane) {
   }
