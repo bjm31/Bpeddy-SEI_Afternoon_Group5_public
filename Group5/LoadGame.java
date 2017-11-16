@@ -1,4 +1,3 @@
-import java.util.Vector;
 
 public class LoadGame {
 
@@ -7,10 +6,6 @@ public class LoadGame {
   public Player player;
 
   public ShipHubMenu shipHubMenu;
-
-    public Vector  myGameLaunch;
-    public Vector  myShipHubMenu;
-    public Vector  myGameLaunch;
 
   public void LoadGame() {
   }

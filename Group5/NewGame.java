@@ -1,14 +1,27 @@
-import java.util.Vector;
+import java.awt.Dimension;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import javax.swing.JFrame;
 
-public class NewGame {
+public class NewGame implements ActionListener {
 
   private PlayerSelection playerSelection;
 
   private Player player;
 
   private ShipHubMenu shipHubMenu;
+  
+  private Dimension frameSize;
+  
+  private JFrame launchFrame;
+  
+  public NewGame(JFrame launchFrame, Dimension frameSize) {
+	  
+	  this.launchFrame = launchFrame;
+	  this.frameSize = frameSize;
+  }
 
-  public void NewGame(PlayerSelection playerSelection, Player player,  ShipHubMenu shipHubMenu) {
+  public NewGame(PlayerSelection playerSelection, Player player, ShipHubMenu shipHubMenu) {
   }
 
   public void createSaveData() {
@@ -18,17 +31,24 @@ public class NewGame {
   }
 
   public ShipHubMenu load() {
-    return null;
+  return null;
   }
 
   public void createNew() {
   }
 
   public PlayerSelection loadChoices() {
-    return null;
+  return null;
   }
 
   public Player saveCharacter() {
-   return null;
+  return null;
+  }
+
+  @Override
+  public void actionPerformed(ActionEvent e) {
+	  launchFrame.setVisible(false);
+	  playerSelection = new PlayerSelection(frameSize,launchFrame);
+	  
   }
 }
