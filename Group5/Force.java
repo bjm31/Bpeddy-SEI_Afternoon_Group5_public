@@ -1,4 +1,3 @@
-import java.util.Vector;
 
 public class Force {
 
@@ -9,9 +8,6 @@ public class Force {
   public int stamina;
 
   public BufferedImage image;
-
-    public Vector  myAllyNPC;
-    public Vector  myMapNPC;
 
   public void Force( int,  int,  int,  BufferedImage) {
   }

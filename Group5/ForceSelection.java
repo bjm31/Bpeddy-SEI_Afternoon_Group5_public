@@ -1,8 +1,8 @@
 public class ForceSelection {
 
-  public ArrayList<Force> forceList;
+  private ArrayList<Force> forceList;
 
-  public JFrame forceMenuFrame;
+  private JFrame forceMenuFrame;
 
   public void ForceSelection( JFrame,  ArrayList<Force>) {
   }

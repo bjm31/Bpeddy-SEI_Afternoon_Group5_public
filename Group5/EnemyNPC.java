@@ -1,13 +1,9 @@
-import java.util.Vector;
 
 public class EnemyNPC extends MapItem {
 
   public Force force;
 
   public BufferedImage image;
-
-    public Vector  myMapNPC;
-    public Vector  myMapItem;
 
   public void EnemyNPC( int,  int,  BufferedImage,  Force) {
   }

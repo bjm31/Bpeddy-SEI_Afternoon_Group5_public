@@ -1,13 +1,13 @@
 
 public class SaveGame {
 
-  public String fileName;
+  private String fileName;
 
-  public ShipHubMenu shipHubMenu;
+  private ShipHubMenu shipHubMenu;
 
-  public JFrame saveGameFrame;
+  private JFrame saveGameFrame;
 
-  public JOptionPane saveGameOptions;
+  private JOptionPane saveGameOptions;
 
   public void SaveGame( String,  ShipHubMenu,  JFrame,  JOptionPane) {
   }

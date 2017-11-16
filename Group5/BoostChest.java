@@ -1,4 +1,3 @@
-import java.util.Vector;
 
 public class BoostChest extends MapItem {
 
@@ -9,9 +8,6 @@ public class BoostChest extends MapItem {
   public int yPosition;
 
   public int boost;
-
-    public Vector  myChest;
-    public Vector  myMapItem;
 
   public void BoostChest( int,  int,  BufferedImage,  int) {
   }

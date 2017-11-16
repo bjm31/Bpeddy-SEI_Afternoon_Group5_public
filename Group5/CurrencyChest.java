@@ -10,9 +10,6 @@ public class CurrencyChest extends , MapItem {
 
   public int currency;
 
-    public Vector  myChest;
-    public Vector  myMapItem;
-
   public void CurrencyChest( int,  int,  BufferedImage,  int) {
   }
 
