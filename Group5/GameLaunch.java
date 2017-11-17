@@ -15,50 +15,50 @@ public class GameLaunch {
 
 	public static void main(String[] args) {
 		
-		 JFrame launchFrame = new JFrame("<Group5> Main Menu");
-		 launchFrame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
+		JFrame launchFrame = new JFrame("<Group5> Main Menu");
+		launchFrame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
 		 
-		 try {
-			 launchFrame.setContentPane(new JLabel((Icon) new ImageIcon(ImageIO.read(new File("maxresdefault.jpg")))));
-	     } catch (IOException e) {
-	    	 e.printStackTrace();
-	     }
+		try {
+			launchFrame.setContentPane(new JLabel((Icon) new ImageIcon(ImageIO.read(new File("maxresdefault.jpg")))));
+	     	} catch (IOException e) {
+	    		e.printStackTrace();
+	     	}
 		 
-		 launchFrame.pack();
-		 Dimension frameSize = launchFrame.getPreferredSize();
+		launchFrame.pack();
+		Dimension frameSize = launchFrame.getPreferredSize();
+		
+		JLabel title = new JLabel("<Group 5>");
+		title.setFont(new Font(title.getName(), Font.BOLD, 100));
+		title.setForeground(java.awt.Color.white);
 		 
-		 JLabel title = new JLabel("<Group 5>");
-		 title.setFont(new Font(title.getName(), Font.BOLD, 100));
-		 title.setForeground(java.awt.Color.white);
+		Dimension titleSize = title.getPreferredSize();
 		 
-		 Dimension titleSize = title.getPreferredSize();
+		title.setBounds((int) (frameSize.getWidth() / 2 - titleSize.getWidth() / 2), (int) frameSize.getHeight() / 10,
+			(int) titleSize.getWidth(), (int) titleSize.getHeight());
 		 
-		 title.setBounds((int) (frameSize.getWidth() / 2 - titleSize.getWidth() / 2), (int) frameSize.getHeight() / 10,
-	    		 (int) titleSize.getWidth(), (int) titleSize.getHeight());
-		 
-	     JButton newGameButton = new JButton("New Game");
-	     newGameButton.addActionListener(new NewGame(launchFrame, frameSize));
+	    	JButton newGameButton = new JButton("New Game");
+	     	newGameButton.addActionListener(new NewGame(launchFrame, frameSize));
 	     
-	     JButton loadGameButton = new JButton("Load Game");
+	     	JButton loadGameButton = new JButton("Load Game");
 	     
-		 JButton exitGameButton = new JButton("Exit Game");
-		 exitGameButton.addActionListener(new ExitGame());
+		JButton exitGameButton = new JButton("Exit Game");
+		exitGameButton.addActionListener(new ExitGame());
 		 
-		 Dimension maxButtonSize = loadGameButton.getPreferredSize();
-		 newGameButton.setPreferredSize(maxButtonSize);
-		 exitGameButton.setPreferredSize(maxButtonSize);
+		Dimension maxButtonSize = loadGameButton.getPreferredSize();
+		newGameButton.setPreferredSize(maxButtonSize);
+		exitGameButton.setPreferredSize(maxButtonSize);
 		 
-		 JPanel launchPanel = new JPanel();
-		 launchPanel.setOpaque(false);
-		 launchPanel.add(newGameButton);
-		 launchPanel.add(loadGameButton);
-		 launchPanel.add(exitGameButton);
+		JPanel launchPanel = new JPanel();
+		launchPanel.setOpaque(false);
+		launchPanel.add(newGameButton);
+		launchPanel.add(loadGameButton);
+		launchPanel.add(exitGameButton);
 
-	     launchPanel.setBounds((int) (frameSize.getWidth() / 2 - maxButtonSize.getWidth() / 2), (int) (frameSize.getHeight() / 2 - maxButtonSize.getHeight() / 2),
-	    		 (int) (maxButtonSize.getWidth()), (int) ((maxButtonSize.getHeight())) * 4);
+	     	launchPanel.setBounds((int) (frameSize.getWidth() / 2 - maxButtonSize.getWidth() / 2), (int) (frameSize.getHeight() / 2 - maxButtonSize.getHeight() / 2),
+	    		(int) (maxButtonSize.getWidth()), (int) ((maxButtonSize.getHeight())) * 4);
 	     
-	     launchFrame.add(launchPanel);
-	     launchFrame.add(title);
-	     launchFrame.setVisible(true);
+	     	launchFrame.add(launchPanel);
+	     	launchFrame.add(title);
+	     	launchFrame.setVisible(true);
 	}
 }
