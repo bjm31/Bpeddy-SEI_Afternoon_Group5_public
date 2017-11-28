@@ -39,6 +39,7 @@ public class PlayerSelection {
   }
 
   public void setSelectionFrame(JFrame jFrame) {
+	  selectionFrame = jFrame;
   }
 
   public JButton getChoice1() {
