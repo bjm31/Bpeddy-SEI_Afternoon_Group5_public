@@ -48,7 +48,8 @@ public class NewGame implements ActionListener {
   @Override
   public void actionPerformed(ActionEvent e) {
 	  launchFrame.setVisible(false);
-	  playerSelection = new PlayerSelection(frameSize,launchFrame);
+	  playerSelection = new PlayerSelection(frameSize);
+	  playerSelection.getSelectionFrame();
 	  
   }
 }
