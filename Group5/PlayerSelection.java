@@ -20,26 +20,23 @@ public class PlayerSelection {
 
   }
 
-  public PlayerSelection(Dimension frameSize, JFrame windowFrame) {
+  public PlayerSelection(Dimension frameSize) {
 	  
 	  this.frameSize = frameSize;
-	  setSelectionFrame(windowFrame);
-	  this.selectionFrame.setVisible(true);
+	  setSelectionFrame(framesize);
   }
 
   public JFrame getSelectionFrame() {
 	  
+	  return selectionFrame;
+  }
+
+  public void setSelectionFrame(Dimension frameSize) {
 	  selectionFrame = new JFrame("Player Selection");
 	  
 	  selectionFrame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
 	  selectionFrame.setBackground(Color.black);
 	  selectionFrame.setPreferredSize(frameSize);
-	  
-	  return selectionFrame;
-  }
-
-  public void setSelectionFrame(JFrame jFrame) {
-	  selectionFrame = jFrame;
   }
 
   public JButton getChoice1() {
