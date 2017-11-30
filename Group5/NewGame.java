@@ -49,7 +49,7 @@ public class NewGame implements ActionListener {
   public void actionPerformed(ActionEvent e) {
 	  launchFrame.setVisible(false);
 	  playerSelection = new PlayerSelection(frameSize);
-	  playerSelection.getSelectionFrame();
+	  playerSelection.selectionFrame.setVisible(true);
 	  
   }
 }
