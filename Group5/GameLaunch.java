@@ -54,11 +54,11 @@ public class GameLaunch {
 		launchPanel.add(loadGameButton);
 		launchPanel.add(exitGameButton);
 
-	     	launchPanel.setBounds((int) (frameSize.getWidth() / 2 - maxButtonSize.getWidth() / 2), (int) (frameSize.getHeight() / 2 - maxButtonSize.getHeight() / 2),
+	    launchPanel.setBounds((int) (frameSize.getWidth() / 2 - maxButtonSize.getWidth() / 2), (int) (frameSize.getHeight() / 2 - maxButtonSize.getHeight() / 2),
 	    		(int) (maxButtonSize.getWidth()), (int) ((maxButtonSize.getHeight())) * 4);
 	     
-	     	launchFrame.add(launchPanel);
-	     	launchFrame.add(title);
-	     	launchFrame.setVisible(true);
+	    launchFrame.add(launchPanel);
+	    launchFrame.add(title);
+	    launchFrame.setVisible(true);
 	}
 }
