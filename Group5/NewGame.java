@@ -31,22 +31,23 @@ public class NewGame implements ActionListener {
   }
 
   public ShipHubMenu load() {
-  return null;
+	  return null;
   }
 
   public void createNew() {
   }
 
   public PlayerSelection loadChoices() {
-  return null;
+	  return null;
   }
 
   public Player saveCharacter() {
-  return null;
+	  return null;
   }
 
   @Override
   public void actionPerformed(ActionEvent e) {
+	  System.out.println(frameSize.toString());
 	  launchFrame.setVisible(false);
 	  playerSelection = new PlayerSelection(frameSize);
 	  playerSelection.selectionFrame.setVisible(true);
