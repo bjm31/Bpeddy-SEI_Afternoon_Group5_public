@@ -1,33 +1,43 @@
+import java.awt.Dimension;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+
 public class PlayingEnvironment {
 
-  public Region region;
+  private Region region;
 
-  public JFrame regionFrame;
+  private Dimension frameSize;
 
-  public BufferedImage image;
-
-  public void PlayingEnvironment( Region,  JFrame,  BufferedImage) {
+  private JLabel regionImage;
+  
+  public PlayingEnvironment(Region region, Dimension frameSize, JLabel regionImage) {
+	  this.region = region;
+	  this.frameSize = frameSize;
+	  this.regionImage = regionImage;
   }
 
   public Region getRegion() {
-  return null;
+	  return region;
   }
 
-  public void setRegion( Region) {
+  public void setRegion(Region region) {
+	  this.region = region;
   }
 
-  public BufferedImage getImage() {
-  return null;
+  public JLabel getRegionImage() {
+	  return regionImage;
   }
 
-  public void setImage( BufferedImage) {
+  public void setRegionImage(JLabel regionImage) {
+	  this.regionImage = regionImage;
   }
 
-  public JFrame getRegionFrame() {
-  return null;
+  public Dimension getFrameSize() {
+	  return frameSize;
   }
 
-  public void setRegionFrame( JFrame) {
+  public void setFrameSize(Dimension frameSize) {
+	  this.frameSize = frameSize;
   }
 
 }
