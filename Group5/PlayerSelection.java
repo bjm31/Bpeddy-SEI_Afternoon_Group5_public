@@ -26,6 +26,8 @@ public class PlayerSelection {
   private JLabel label2;
   private JLabel label3;
   
+  private Player player;
+  
   private JPanel selectionPanel;
 
   private JButton choice1;
@@ -38,6 +40,10 @@ public class PlayerSelection {
   private Dimension titleSize;
   
   private GridBagConstraints constraints;
+  
+  public PlayerSelection(JFrame jFrame, JButton jButton1, JButton jButton2, JButton jButton3) {
+
+  }
 
   public PlayerSelection(Dimension frameSize) {
 	  this.frameSize = frameSize;
@@ -45,6 +51,7 @@ public class PlayerSelection {
   }
 
   public JFrame getSelectionFrame() {
+	  
 	  return selectionFrame;
   }
 
@@ -55,28 +62,29 @@ public class PlayerSelection {
 	  selectionFrame.add(addTitle());
 	  selectionFrame.add(addSelectionPanel());
 	  selectionFrame.setVisible(true);
+	  System.out.println(selectionFrame.getSize().toString());
 	  
   }
 
   public void selectionButton1Pressed()
   {
-	  new Player(label1);
+	  player = new Player(label1);
 	  selectionFrame.dispose();
-	  new ShipHubMenu(frameSize);
+	  new ShipHubMenu(frameSize, player);
   }
   
   public void selectionButton2Pressed()
   {
-	  new Player(label2);
+	  player = new Player(label1);
 	  selectionFrame.dispose();
-	  new ShipHubMenu(frameSize);
+	  new ShipHubMenu(frameSize, player);
   }
   
   public void selectionButton3Pressed()
   {
-	  new Player(label3);
+	  player = new Player(label1);
 	  selectionFrame.dispose();
-	  new ShipHubMenu(frameSize);
+	  new ShipHubMenu(frameSize, player);
   }
   
   public JPanel addSelectionPanel()
