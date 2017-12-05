@@ -1,33 +1,41 @@
+import java.util.ArrayList;
+
 public class Diplomat {
 
-  public String dialogue;
+  private String dialogue;
 
-  public Mission mission;
+  private Mission mission;
 
-  public ArrayList<Force> forceList;
+  private ArrayList<Force> forceList;
 
-  public void Diplomat( String,  Mission,  ArrayList<Force>) {
+  public Diplomat(String dialogue, Mission mission, ArrayList<Force> forceList) {
+	  this.dialogue = dialogue;
+	  this.mission = mission;
+	  this.forceList = forceList;
   }
 
   public String getDialogue() {
-  return null;
+	  return dialogue;
   }
 
-  public void setDialogue( String) {
+  public void setDialogue(String dialogue) {
+	  this.dialogue = dialogue;
   }
 
   public Mission getMission() {
-  return null;
+	  return mission;
   }
 
-  public void setMission( Mission) {
+  public void setMission(Mission mission) {
+	  this.mission = mission;
   }
 
   public ArrayList<Force> getForceList() {
-  return null;
+	  return forceList;
   }
 
-  public void setForceList( ArrayList<Force>) {
+  public void setForceList(ArrayList<Force> forceList) {
+	  this.forceList = forceList;
   }
 
 }
