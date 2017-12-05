@@ -28,6 +28,7 @@ public class ShipHubMenu {
 	private JLabel level;
 	private JLabel exp;
 	private JLabel currency;
+	private JLabel portrait;
 	
 	private Player player;
 	
@@ -101,6 +102,7 @@ public class ShipHubMenu {
   
 	public JPanel addInfoPanel()
 	{
+		portrait = player.getPlayerPortrait();
 		currency = new JLabel("Currency: $ " + player.getCurrency());
 		currency.setFont(new Font(title.getName(), Font.BOLD, 18));
 		currency.setForeground(java.awt.Color.white);
@@ -117,11 +119,12 @@ public class ShipHubMenu {
 	  
 		infoPanel = new JPanel();
 		infoPanel.setOpaque(false);
+		infoPanel.add(portrait);
 		infoPanel.add(level);
 		infoPanel.add(exp);
 		infoPanel.add(currency);
 		infoPanel.setBounds((int) (frameSize.getWidth() - maxLabelSize.getWidth() - 50), (int) (frameSize.getHeight() / 99 - maxLabelSize.getHeight() / 2),
-	    		(int) (maxLabelSize.getWidth()), (int) ((maxLabelSize.getHeight())) * 4);
+	    		(int) (maxLabelSize.getWidth()), (int) ((maxLabelSize.getHeight())) * 9);
 		return infoPanel;
 	}
   
