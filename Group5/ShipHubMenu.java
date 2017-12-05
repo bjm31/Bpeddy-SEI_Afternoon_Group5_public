@@ -1,5 +1,7 @@
 import java.awt.Dimension;
 import java.awt.Font;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.io.File;
 import java.io.IOException;
 
@@ -35,7 +37,7 @@ public class ShipHubMenu {
 		setShipHubMenuFrame(frameSize);
 	}
   public void setShipHubMenuFrame(Dimension frameSize) {
-	  shipHubFrame = new JFrame("Player Selection");
+	  shipHubFrame = new JFrame("Ship Hub");
 	  shipHubFrame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
 	  try {
 			shipHubFrame.setContentPane(new JLabel((Icon) new ImageIcon(ImageIO.read(new File("ship.jpg")))));
@@ -66,6 +68,27 @@ public class ShipHubMenu {
 	  forceSelectionButton.setPreferredSize(maxButtonSize);
 	  saveButton.setPreferredSize(maxButtonSize);
 	  
+	  missionSelectionButton.addActionListener(new ActionListener() {
+		  public void actionPerformed(ActionEvent e) {
+	  		missionSelectionButtonPressed(); 
+	  		} 
+	  } );
+	  worldStandingButton.addActionListener(new ActionListener() {
+		  public void actionPerformed(ActionEvent e) {
+	  		worldStandingButtonPressed(); 
+	  		} 
+	  } );
+	  forceSelectionButton.addActionListener(new ActionListener() {
+		  public void actionPerformed(ActionEvent e) {
+	  		forceSelectionButtonPressed(); 
+	  		} 
+	  } );
+	  saveButton.addActionListener(new ActionListener() {
+		  public void actionPerformed(ActionEvent e) {
+	  		saveButtonPressed(); 
+	  		} 
+	  } );
+	  
 	  shipPanel = new JPanel();
 	  shipPanel.setOpaque(false);
 	  shipPanel.add(missionSelectionButton);
@@ -83,21 +106,25 @@ public class ShipHubMenu {
 
   public void missionSelectionButtonPressed()
   {
+	  shipHubFrame.dispose();
 	  new ShipHubMenu(frameSize);
   }
   
   public void forceSelectionButtonPressed()
   {
+	  shipHubFrame.dispose();
 	  new ShipHubMenu(frameSize);
   }
   
-  public void WorldStandingButtonPressed()
+  public void worldStandingButtonPressed()
   {
+	  shipHubFrame.dispose();
 	  new ShipHubMenu(frameSize);
   }
   
   public void saveButtonPressed()
   {
+	  shipHubFrame.dispose();
 	  new ShipHubMenu(frameSize);
   }
 
