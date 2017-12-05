@@ -4,6 +4,8 @@ import javax.swing.JLabel;
 
 public class Region {
 	
+	private String regionName;
+	
 	private JLabel regionImage;
 
 	private ArrayList<MapItem> mapItemList;
@@ -14,7 +16,8 @@ public class Region {
   
 	private int reputation;
 
-  public Region(JLabel regionImage, ArrayList<Diplomat> diplomatList, ArrayList<MapItem> mapItemList, ArrayList<Mission> missionList, int reputation) {
+  public Region(String regionName, JLabel regionImage, ArrayList<Diplomat> diplomatList, ArrayList<MapItem> mapItemList, ArrayList<Mission> missionList, int reputation) {
+	  this.regionName = regionName;
 	  this.regionImage = regionImage;
 	  this.diplomatList = diplomatList;
 	  this.mapItemList = mapItemList;
@@ -63,6 +66,14 @@ public class Region {
 
   public void setRegionImage(JLabel regionImage) {
 	this.regionImage = regionImage;
+  }
+
+  public String getRegionName() {
+	return regionName;
+  }
+
+  public void setRegionName(String regionName) {
+	this.regionName = regionName;
   }
 
 }
