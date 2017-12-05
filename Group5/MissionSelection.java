@@ -18,13 +18,22 @@ public class MissionSelection {
   
   private static JButton region1Mission1Button;
   private static JButton region2Mission1Button;
+  private static JButton region3Mission1Button;
+  private static JButton region4Mission1Button;
+  private static JButton region5Mission1Button;
   
   private JPanel region1MissionPanel;
   private JPanel region2MissionPanel;
+  private JPanel region3MissionPanel;
+  private JPanel region4MissionPanel;
+  private JPanel region5MissionPanel;
   
   private JLabel title;
   private JLabel region1Title;
   private JLabel region2Title;
+  private JLabel region3Title;
+  private JLabel region4Title;
+  private JLabel region5Title;
   
   private Dimension frameSize;
   
@@ -54,10 +63,26 @@ public class MissionSelection {
 	  region1Title = new JLabel("Region 1");
 	  region1Title.setFont(new Font(region1Title.getName(), Font.BOLD, 18));
 	  region1Title.setForeground(java.awt.Color.white);
+	  
 	  region2Mission1Button = new JButton("Mission 1");
 	  region2Title = new JLabel("Region 2");
 	  region2Title.setFont(new Font(region2Title.getName(), Font.BOLD, 18));
 	  region2Title.setForeground(java.awt.Color.white);
+	  
+	  region3Mission1Button = new JButton("Mission 1");
+	  region3Title = new JLabel("Region 3");
+	  region3Title.setFont(new Font(region3Title.getName(), Font.BOLD, 18));
+	  region3Title.setForeground(java.awt.Color.white);
+	  
+	  region4Mission1Button = new JButton("Mission 1");
+	  region4Title = new JLabel("Region 4");
+	  region4Title.setFont(new Font(region4Title.getName(), Font.BOLD, 18));
+	  region4Title.setForeground(java.awt.Color.white);
+	  
+	  region5Mission1Button = new JButton("Mission 1");
+	  region5Title = new JLabel("Region 5");
+	  region5Title.setFont(new Font(region5Title.getName(), Font.BOLD, 18));
+	  region5Title.setForeground(java.awt.Color.white);
 	  
 	  Dimension maxButtonSize = region1Mission1Button.getPreferredSize();
 	  
@@ -67,7 +92,7 @@ public class MissionSelection {
 	  		} 
 	  } );
 	  
-	  title = new JLabel("Ship Hub");
+	  title = new JLabel("Mission Selection");
 	  title.setFont(new Font(title.getName(), Font.BOLD, 25));
 	  title.setForeground(java.awt.Color.white);
 	  
@@ -90,8 +115,32 @@ public class MissionSelection {
 	  region2MissionPanel.setBounds((int) (frameSize.getWidth() / 5 - maxButtonSize.getWidth() / 2), (int) (frameSize.getHeight() / 2 - maxButtonSize.getHeight() / 2),
 	    		(int) (maxButtonSize.getWidth()), (int) ((maxButtonSize.getHeight())) * 3);
 	  
+	  region3MissionPanel = new JPanel();
+	  region3MissionPanel.setOpaque(false);
+	  region3MissionPanel.add(region3Title);
+	  region3MissionPanel.add(region3Mission1Button);
+	  region3MissionPanel.setBounds((int) (frameSize.getWidth() / 2 - maxButtonSize.getWidth() / 2 - 30), (int) (frameSize.getHeight() / 2 - maxButtonSize.getHeight() / 2 - 50),
+	    		(int) (maxButtonSize.getWidth()), (int) ((maxButtonSize.getHeight())) * 3);
+	  
+	  region4MissionPanel = new JPanel();
+	  region4MissionPanel.setOpaque(false);
+	  region4MissionPanel.add(region4Title);
+	  region4MissionPanel.add(region4Mission1Button);
+	  region4MissionPanel.setBounds((int) (frameSize.getWidth() / 2 - maxButtonSize.getWidth() / 2 + 100), (int) (frameSize.getHeight() / 8 - maxButtonSize.getHeight() / 2),
+	    		(int) (maxButtonSize.getWidth()), (int) ((maxButtonSize.getHeight())) * 3);
+	  
+	  region5MissionPanel = new JPanel();
+	  region5MissionPanel.setOpaque(false);
+	  region5MissionPanel.add(region5Title);
+	  region5MissionPanel.add(region5Mission1Button);
+	  region5MissionPanel.setBounds((int) (frameSize.getWidth() - maxButtonSize.getWidth() / 2 - 300), (int) (frameSize.getHeight() / 2 - maxButtonSize.getHeight() / 2),
+	    		(int) (maxButtonSize.getWidth()), (int) ((maxButtonSize.getHeight())) * 3);
+	  
 	  missionSelectionFrame.add(region1MissionPanel);
 	  missionSelectionFrame.add(region2MissionPanel);
+	  missionSelectionFrame.add(region3MissionPanel);
+	  missionSelectionFrame.add(region4MissionPanel);
+	  missionSelectionFrame.add(region5MissionPanel);
 	  missionSelectionFrame.add(title);
 	  
 	  System.out.println(missionSelectionFrame.getSize().toString());
