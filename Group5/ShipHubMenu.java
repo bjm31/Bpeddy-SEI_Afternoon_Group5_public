@@ -40,8 +40,10 @@ public class ShipHubMenu {
   private JFrame shipHubFrame;
 
   public ShipHubMenu(Dimension frameSize) {
-		setShipHubMenuFrame(frameSize);
-	}
+	  this.frameSize = frameSize;
+	  setShipHubMenuFrame(frameSize);
+  }
+  
   public void setShipHubMenuFrame(Dimension frameSize) {
 	  shipHubFrame = new JFrame("Ship Hub");
 	  shipHubFrame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
@@ -136,7 +138,7 @@ public class ShipHubMenu {
   public void missionSelectionButtonPressed()
   {
 	  shipHubFrame.dispose();
-	  new ShipHubMenu(frameSize);
+	  new MissionSelection(frameSize);
   }
   
   public void forceSelectionButtonPressed()
