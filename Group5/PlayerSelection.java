@@ -38,10 +38,6 @@ public class PlayerSelection {
   private Dimension titleSize;
   
   private GridBagConstraints constraints;
-  
-  public PlayerSelection(JFrame jFrame, JButton jButton1, JButton jButton2, JButton jButton3) {
-
-  }
 
   public PlayerSelection(Dimension frameSize) {
 	  this.frameSize = frameSize;
@@ -49,7 +45,6 @@ public class PlayerSelection {
   }
 
   public JFrame getSelectionFrame() {
-	  
 	  return selectionFrame;
   }
 
