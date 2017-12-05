@@ -1,45 +1,58 @@
 public class Mission {
 
-  public int reputation;
+  private int reputation;
 
-  public int currency;
+  private int currency;
 
-  public String details;
+  private String details;
+  
+  private boolean status;
 
-  public int worldStandingLoss( Region) {
-  return 0;
+  public Mission(int reputation, int currency, String details, boolean status) {
+	  this.reputation = reputation;
+	  this.currency = currency;
+	  this.details = details;
+	  this.status = status;
+  }
+  
+  public void worldStandingLoss(Region region) {
+	  region.updateReputation(reputation * -1);
   }
 
-  public int worldStandingGain( Region) {
-  return 0;
-  }
-
-  public void Mission( int,  int,  String) {
+  public void worldStandingGain(Region region) {
+	  region.updateReputation(reputation);
   }
 
   public int getReputation() {
-  return 0;
+	  return reputation;
   }
 
-  public void setReputation( int) {
+  public void setReputation(int reputation) {
+	  this.reputation = reputation;
   }
 
   public int getCurrency() {
-  return 0;
+	  return currency;
   }
 
-  public void setCurrency( int) {
+  public void setCurrency(int currency) {
+	  this.currency = currency;
   }
 
   public String getDetails() {
-  return null;
+	  return details;
   }
 
-  public void setDetails( String) {
+  public void setDetails(String details) {
+	  this.details = details;
   }
 
-  public boolean complete() {
-  return false;
+  public boolean getStatus() {
+	  return status;
+  }
+  
+  public void setStatus(boolean status) {
+	  this.status = status;
   }
 
 }
