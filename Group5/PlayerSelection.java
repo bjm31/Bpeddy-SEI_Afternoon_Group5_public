@@ -55,24 +55,26 @@ public class PlayerSelection {
 	  selectionFrame.add(addTitle());
 	  selectionFrame.add(addSelectionPanel());
 	  selectionFrame.setVisible(true);
-	  System.out.println(selectionFrame.getSize().toString());
 	  
   }
 
   public void selectionButton1Pressed()
   {
+	  new Player(label1);
 	  selectionFrame.dispose();
 	  new ShipHubMenu(frameSize);
   }
   
   public void selectionButton2Pressed()
   {
+	  new Player(label2);
 	  selectionFrame.dispose();
 	  new ShipHubMenu(frameSize);
   }
   
   public void selectionButton3Pressed()
   {
+	  new Player(label3);
 	  selectionFrame.dispose();
 	  new ShipHubMenu(frameSize);
   }
