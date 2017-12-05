@@ -1,35 +1,41 @@
+import javax.swing.JLabel;
 
 public class MapItem {
 
-  public int xPosition;
+  private int xPos;
 
-  public int yPosition;
+  private int yPos;
 
-  public BufferedImage image;
-
-  public int getXPosition() {
-  return 0;
+  private JLabel image;
+  
+  public MapItem(int xPos, int yPos, JLabel image) {
+	  this.xPos = xPos;
+	  this.yPos = yPos;
+	  this.image = image;
   }
 
-  public int setXPosition( int) {
-  return 0;
+  public int getXPosition() {
+	  return xPos;
+  }
+
+  public void setXPosition(int xPos) {
+	  this.xPos = xPos;
   }
 
   public int getYPosition() {
-  return 0;
+	  return yPos;
   }
 
-  public void setYPosition( int) {
+  public void setYPosition(int yPos) {
+	  this.yPos = yPos;
   }
 
-  public BufferedImage getImage() {
-  return null;
+  public JLabel getImage() {
+	  return image;
   }
 
-  public void setImage( BufferedImage) {
-  }
-
-  public void MapItem( int,  int,  BufferedImage) {
+  public void setImage(JLabel image) {
+	  this.image = image;
   }
 
 }
