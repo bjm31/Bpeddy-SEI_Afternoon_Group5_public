@@ -36,6 +36,9 @@ public class ShipHubMenu {
   private ForceSelection forceSelection;
   
   private Dimension frameSize;
+  private Dimension maxButtonSize;
+  private Dimension maxLabelSize;
+  private Dimension titleSize;
   
   private JFrame shipHubFrame;
 
@@ -56,26 +59,51 @@ public class ShipHubMenu {
 
 	  shipHubFrame.setVisible(true);
 	  shipHubFrame.setSize(frameSize);
+
+	  shipHubFrame.add(addButtonPanel());
+	  shipHubFrame.add(addTitle());
+	  shipHubFrame.add(addInfoPanel());
 	  
+	  System.out.println(shipHubFrame.getSize().toString());
+  }
+
+  public void missionSelectionButtonPressed()
+  {
+	  shipHubFrame.dispose();
+	  new MissionSelection(frameSize);
+  }
+  
+  public void forceSelectionButtonPressed()
+  {
+	  shipHubFrame.dispose();
+	  new ShipHubMenu(frameSize);
+  }
+  
+  public void worldStandingButtonPressed()
+  {
+	  shipHubFrame.dispose();
+	  new ShipHubMenu(frameSize);
+  }
+  
+  public void saveButtonPressed()
+  {
+	  shipHubFrame.dispose();
+	  new ShipHubMenu(frameSize);
+  }
+
+  public JLabel addTitle()
+  {
 	  title = new JLabel("Ship Hub");
 	  title.setFont(new Font(title.getName(), Font.BOLD, 100));
 	  title.setForeground(java.awt.Color.white);
-	  
-	  Dimension titleSize = title.getPreferredSize();
-	  
+	  titleSize = title.getPreferredSize();
 	  title.setBounds((int) (frameSize.getWidth() / 2 - titleSize.getWidth() / 2), (int) frameSize.getHeight() / 10,
 				(int) titleSize.getWidth(), (int) titleSize.getHeight());
-	  
-	  missionSelectionButton = new JButton("Mission Selection");
-	  worldStandingButton = new JButton("View World Standing");
-	  forceSelectionButton = new JButton("View Forces");
-	  saveButton = new JButton("Save");
-	  
-	  Dimension maxButtonSize = worldStandingButton.getPreferredSize();
-	  missionSelectionButton.setPreferredSize(maxButtonSize);
-	  forceSelectionButton.setPreferredSize(maxButtonSize);
-	  saveButton.setPreferredSize(maxButtonSize);
-	  
+	  return title;
+  }
+  
+  public JPanel addInfoPanel()
+  {
 	  currency = new JLabel("Currency: $");
 	  currency.setFont(new Font(title.getName(), Font.BOLD, 18));
 	  currency.setForeground(java.awt.Color.white);
@@ -86,9 +114,31 @@ public class ShipHubMenu {
 	  exp.setFont(new Font(title.getName(), Font.BOLD, 18));
 	  exp.setForeground(java.awt.Color.white);
 	  
-	  Dimension maxLabelSize = currency.getPreferredSize();
+	  maxLabelSize = currency.getPreferredSize();
 	  level.setPreferredSize(maxLabelSize);
 	  exp.setPreferredSize(maxLabelSize);
+	  
+	  infoPanel = new JPanel();
+	  infoPanel.setOpaque(false);
+	  infoPanel.add(level);
+	  infoPanel.add(exp);
+	  infoPanel.add(currency);
+	  infoPanel.setBounds((int) (frameSize.getWidth() - maxLabelSize.getWidth() - 50), (int) (frameSize.getHeight() / 99 - maxLabelSize.getHeight() / 2),
+	    		(int) (maxLabelSize.getWidth()), (int) ((maxLabelSize.getHeight())) * 4);
+	  return infoPanel;
+  }
+  
+  public JPanel addButtonPanel()
+  {
+	  missionSelectionButton = new JButton("Mission Selection");
+	  worldStandingButton = new JButton("View World Standing");
+	  forceSelectionButton = new JButton("View Forces");
+	  saveButton = new JButton("Save");
+	  
+	  maxButtonSize = worldStandingButton.getPreferredSize();
+	  missionSelectionButton.setPreferredSize(maxButtonSize);
+	  forceSelectionButton.setPreferredSize(maxButtonSize);
+	  saveButton.setPreferredSize(maxButtonSize);
 	  
 	  missionSelectionButton.addActionListener(new ActionListener() {
 		  public void actionPerformed(ActionEvent e) {
@@ -119,46 +169,9 @@ public class ShipHubMenu {
 	  buttonPanel.add(saveButton);
 	  buttonPanel.setBounds((int) (frameSize.getWidth() / 2 - maxButtonSize.getWidth() / 2), (int) (frameSize.getHeight() / 2 - maxButtonSize.getHeight() / 2),
 	    		(int) (maxButtonSize.getWidth()), (int) ((maxButtonSize.getHeight())) * 5);
-	  
-	  infoPanel = new JPanel();
-	  infoPanel.setOpaque(false);
-	  infoPanel.add(level);
-	  infoPanel.add(exp);
-	  infoPanel.add(currency);
-	  infoPanel.setBounds((int) (frameSize.getWidth() - maxLabelSize.getWidth() - 50), (int) (frameSize.getHeight() / 99 - maxLabelSize.getHeight() / 2),
-	    		(int) (maxLabelSize.getWidth()), (int) ((maxLabelSize.getHeight())) * 4);
-	  
-	  shipHubFrame.add(buttonPanel);
-	  shipHubFrame.add(title);
-	  shipHubFrame.add(infoPanel);
-	  
-	  System.out.println(shipHubFrame.getSize().toString());
-  }
-
-  public void missionSelectionButtonPressed()
-  {
-	  shipHubFrame.dispose();
-	  new MissionSelection(frameSize);
+	  return buttonPanel;
   }
   
-  public void forceSelectionButtonPressed()
-  {
-	  shipHubFrame.dispose();
-	  new ShipHubMenu(frameSize);
-  }
-  
-  public void worldStandingButtonPressed()
-  {
-	  shipHubFrame.dispose();
-	  new ShipHubMenu(frameSize);
-  }
-  
-  public void saveButtonPressed()
-  {
-	  shipHubFrame.dispose();
-	  new ShipHubMenu(frameSize);
-  }
-
   public MissionSelection getMissionSelection() {
     return null;
   }
