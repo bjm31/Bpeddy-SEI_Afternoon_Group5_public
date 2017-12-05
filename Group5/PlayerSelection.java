@@ -1,7 +1,9 @@
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Dimension;
-import java.awt.GridLayout;
+import java.awt.GridBagConstraints;
+import java.awt.GridBagLayout;
+import java.awt.Insets;
 import java.awt.Label;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -68,7 +70,8 @@ public class PlayerSelection {
 	  	} 
 	  } );
 	  
-	  JPanel selectionPanel1 = new JPanel(new GridLayout(2,3, 50, 1));
+	  JPanel selectionPanel1 = new JPanel(new GridBagLayout());
+	  GridBagConstraints c = new GridBagConstraints();
 	  selectionPanel1.setBackground(java.awt.Color.black);
 	  JLabel label1 = new JLabel();
 	  JLabel label2 = new JLabel();
@@ -82,12 +85,31 @@ public class PlayerSelection {
 	  {
 		  e.printStackTrace();
 	  }
-	  selectionPanel1.add(label1);
-	  selectionPanel1.add(label2);
-	  selectionPanel1.add(label3);
-	  selectionPanel1.add(choice1);
-	  selectionPanel1.add(choice2);
-	  selectionPanel1.add(choice3);
+	  c.weightx = 0.5;
+	  c.gridx = 0;
+	  c.gridy = 0;
+	  selectionPanel1.add(label1, c);
+	  c.weightx = 0.5;
+	  c.gridx = 1;
+	  c.gridy = 0;
+	  //selectionPanel1.add(label2, c);
+	  c.weightx = 0.5;
+	  c.gridx = 2;
+	  c.gridy = 0;
+	  //selectionPanel1.add(label3, c);
+	  c.insets = new Insets(25,0,0,0);
+	  c.weightx = 0.5;
+	  c.gridx = 0;
+	  c.gridy = 1;
+	  selectionPanel1.add(choice1, c);
+	  c.weightx = 0.5;
+	  c.gridx = 1;
+	  c.gridy = 1;
+	  selectionPanel1.add(choice2, c);
+	  c.weightx = 0.5;
+	  c.gridx = 2;
+	  c.gridy = 1;
+	  selectionPanel1.add(choice3, c);
 	  
 	  selectionFrame.add(selectionPanel1);
 	  
