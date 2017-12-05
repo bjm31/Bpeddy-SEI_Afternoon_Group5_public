@@ -20,8 +20,14 @@ public class ShipHubMenu {
 	private static JButton forceSelectionButton;
 	private static JButton worldStandingButton;
 	private static JButton saveButton;
-	private JPanel shipPanel;
+	
+	private JPanel buttonPanel;
+	private JPanel infoPanel;
+	
 	private JLabel title;
+	private JLabel level;
+	private JLabel exp;
+	private JLabel currency;
 	
   private MissionSelection missionSelection;
 
@@ -68,6 +74,20 @@ public class ShipHubMenu {
 	  forceSelectionButton.setPreferredSize(maxButtonSize);
 	  saveButton.setPreferredSize(maxButtonSize);
 	  
+	  currency = new JLabel("Currency: $");
+	  currency.setFont(new Font(title.getName(), Font.BOLD, 18));
+	  currency.setForeground(java.awt.Color.white);
+	  level = new JLabel("Level: ");
+	  level.setFont(new Font(title.getName(), Font.BOLD, 18));
+	  level.setForeground(java.awt.Color.white);
+	  exp = new JLabel("EXP: ");
+	  exp.setFont(new Font(title.getName(), Font.BOLD, 18));
+	  exp.setForeground(java.awt.Color.white);
+	  
+	  Dimension maxLabelSize = currency.getPreferredSize();
+	  level.setPreferredSize(maxLabelSize);
+	  exp.setPreferredSize(maxLabelSize);
+	  
 	  missionSelectionButton.addActionListener(new ActionListener() {
 		  public void actionPerformed(ActionEvent e) {
 	  		missionSelectionButtonPressed(); 
@@ -89,17 +109,26 @@ public class ShipHubMenu {
 	  		} 
 	  } );
 	  
-	  shipPanel = new JPanel();
-	  shipPanel.setOpaque(false);
-	  shipPanel.add(missionSelectionButton);
-	  shipPanel.add(worldStandingButton);
-	  shipPanel.add(forceSelectionButton);
-	  shipPanel.add(saveButton);
-	  shipPanel.setBounds((int) (frameSize.getWidth() / 2 - maxButtonSize.getWidth() / 2), (int) (frameSize.getHeight() / 2 - maxButtonSize.getHeight() / 2),
+	  buttonPanel = new JPanel();
+	  buttonPanel.setOpaque(false);
+	  buttonPanel.add(missionSelectionButton);
+	  buttonPanel.add(worldStandingButton);
+	  buttonPanel.add(forceSelectionButton);
+	  buttonPanel.add(saveButton);
+	  buttonPanel.setBounds((int) (frameSize.getWidth() / 2 - maxButtonSize.getWidth() / 2), (int) (frameSize.getHeight() / 2 - maxButtonSize.getHeight() / 2),
 	    		(int) (maxButtonSize.getWidth()), (int) ((maxButtonSize.getHeight())) * 5);
 	  
-	  shipHubFrame.add(shipPanel);
+	  infoPanel = new JPanel();
+	  infoPanel.setOpaque(false);
+	  infoPanel.add(level);
+	  infoPanel.add(exp);
+	  infoPanel.add(currency);
+	  infoPanel.setBounds((int) (frameSize.getWidth() - maxLabelSize.getWidth() - 50), (int) (frameSize.getHeight() / 99 - maxLabelSize.getHeight() / 2),
+	    		(int) (maxLabelSize.getWidth()), (int) ((maxLabelSize.getHeight())) * 4);
+	  
+	  shipHubFrame.add(buttonPanel);
 	  shipHubFrame.add(title);
+	  shipHubFrame.add(infoPanel);
 	  
 	  System.out.println(shipHubFrame.getSize().toString());
   }
