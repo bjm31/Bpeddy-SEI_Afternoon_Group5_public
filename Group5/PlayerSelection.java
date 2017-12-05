@@ -74,9 +74,9 @@ public class PlayerSelection {
 	  JLabel label2 = new JLabel();
 	  JLabel label3 = new JLabel();
 	  try {
-		  label1 = new JLabel((Icon)new ImageIcon(ImageIO.read(new File ("src\\Pictures\\alien1.jpg"))));
-		  label2 = new JLabel((Icon)new ImageIcon(ImageIO.read(new File ("src\\Pictures\\alien2.jpg"))));
-		  label3 = new JLabel((Icon)new ImageIcon(ImageIO.read(new File ("src\\Pictures\\alien3.jpg"))));
+		  label1 = new JLabel((Icon)new ImageIcon(ImageIO.read(new File ("alien1.jpg"))));
+		  label2 = new JLabel((Icon)new ImageIcon(ImageIO.read(new File ("alien2.jpg"))));
+		  label3 = new JLabel((Icon)new ImageIcon(ImageIO.read(new File ("alien3.jpg"))));
 	  }
 	  catch (IOException e)
 	  {
