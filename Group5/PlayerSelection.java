@@ -3,6 +3,8 @@ import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.GridLayout;
 import java.awt.Label;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 import javax.imageio.ImageIO;
 import java.io.IOException;
@@ -19,11 +21,11 @@ public class PlayerSelection {
 	
   public JFrame selectionFrame;
 
-  public JButton choice1;
+  private JButton choice1;
 
-  public JButton choice2;
+  private JButton choice2;
 
-  public JButton choice3;
+  private JButton choice3;
 
   private Dimension frameSize;
   
@@ -47,10 +49,24 @@ public class PlayerSelection {
 	  selectionFrame.setSize(frameSize);
 	  selectionFrame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
 	  
-	  JButton choice1 = new JButton("Select");
-	  choice1.setSize(100,200);
-	  JButton choice2 = new JButton("Select");
-	  JButton choice3 = new JButton("Select");
+	  choice1 = new JButton("Select");
+	  choice1.addActionListener(new ActionListener() 
+	  	{ public void actionPerformed(ActionEvent e) 
+	  		{ selectionButton1Pressed(); 
+	  	} 
+	  } );
+	  choice2 = new JButton("Select");
+	  choice2.addActionListener(new ActionListener() 
+	  	{ public void actionPerformed(ActionEvent e) 
+	  		{ selectionButton2Pressed(); 
+	  	} 
+	  } );
+	  choice3 = new JButton("Select");
+	  choice3.addActionListener(new ActionListener() 
+	  	{ public void actionPerformed(ActionEvent e) 
+	  		{ selectionButton3Pressed(); 
+	  	} 
+	  } );
 	  
 	  JPanel selectionPanel1 = new JPanel(new GridLayout(2,3, 50, 1));
 	  selectionPanel1.setBackground(java.awt.Color.black);
@@ -58,9 +74,9 @@ public class PlayerSelection {
 	  JLabel label2 = new JLabel();
 	  JLabel label3 = new JLabel();
 	  try {
-		  label1 = new JLabel((Icon)new ImageIcon(ImageIO.read(new File ("C:\\Users\\bjm31\\OneDrive\\YODA-FIGURE.png"))));
-		  label2 = new JLabel((Icon)new ImageIcon(ImageIO.read(new File ("C:\\Users\\bjm31\\OneDrive\\YODA-FIGURE.png"))));
-		  label3 = new JLabel((Icon)new ImageIcon(ImageIO.read(new File ("C:\\Users\\bjm31\\OneDrive\\YODA-FIGURE.png"))));
+		  label1 = new JLabel((Icon)new ImageIcon(ImageIO.read(new File ("src\\Pictures\\alien1.jpg"))));
+		  label2 = new JLabel((Icon)new ImageIcon(ImageIO.read(new File ("src\\Pictures\\alien2.jpg"))));
+		  label3 = new JLabel((Icon)new ImageIcon(ImageIO.read(new File ("src\\Pictures\\alien3.jpg"))));
 	  }
 	  catch (IOException e)
 	  {
@@ -79,6 +95,21 @@ public class PlayerSelection {
 	  
   }
 
+  public void selectionButton1Pressed()
+  {
+	  new ShipHubMenu(selectionFrame, frameSize);
+  }
+  
+  public void selectionButton2Pressed()
+  {
+	  new ShipHubMenu(selectionFrame, frameSize);
+  }
+  
+  public void selectionButton3Pressed()
+  {
+	  new ShipHubMenu(selectionFrame, frameSize);
+  }
+  
   public JButton getChoice1() {
   return null;
   }
