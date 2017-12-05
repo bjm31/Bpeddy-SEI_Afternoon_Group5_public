@@ -21,10 +21,15 @@ public class Player {
   private int experience;
 
   private int currency;
+  
+  private int level;
 
   public Player(JLabel playerPortrait) {
 	  
-	  this.playerPortrait = playerPortrait;
+	  setPlayerPortrait(playerPortrait);
+	  setPlayerLevel(1);
+	  setPlayerExperience(0);
+	  setPlayerCurrency(0);
 	  
 	 //Region region = new Region(new JLabel((Icon)new ImageIcon(ImageIO.read(new File ("download.png")))), 
 	 //setRegionList(new ArrayList<Region>().add(region));
@@ -34,8 +39,33 @@ public class Player {
   public JLabel getPlayerPortrait() {
     return playerPortrait;
   }
+  
+  public int getPlayerLevel() {
+	  return level;
+  }
+  
+  public int getPlayerExperience() {
+	  return experience;
+  }
+  
+  public int getPlayerCurrency() {
+	  return currency;
+  }
+  
+  private void setPlayerLevel(int level) {
+	  this.level = level;
+  }
+  
+  private void setPlayerExperience(int experience) {
+	  this.experience = experience;
+  }
+  
+  private void setPlayerCurrency(int currency) {
+	  this.currency = currency;
+  }
 
-  public void setPlayerPortrait(JLabel playerPortrait) {
+  private void setPlayerPortrait(JLabel playerPortrait) {
+	  this.playerPortrait = playerPortrait;
   }
 
   public ArrayList<Region> getRegionList() {
