@@ -1,10 +1,18 @@
+import java.io.File;
+import java.util.ArrayList;
+
+import javax.imageio.ImageIO;
+import javax.swing.Icon;
+import javax.swing.ImageIcon;
+import javax.swing.JLabel;
+
 public class Player {
 
-  private BufferedImage playerPortrait;
+  private JLabel playerPortrait;
 
   private ArrayList<Region> regionList;
 
-  private ArrayList<Item> itemList;
+  private ArrayList<MapItem> itemList;
 
   private ArrayList<Force> forceList;
 
@@ -14,32 +22,35 @@ public class Player {
 
   private int currency;
 
-  public void Player(BufferedImage playerPortrait, ArrayList<Region> regionList, ArrayList<Item> itemList, 
-                     ArrayList<Force> forceList, String gameDataFileName, int experience, int currency) {
+  public Player(JLabel playerPortrait) {
+	  
+	  this.playerPortrait = playerPortrait;
+	  
+	 //Region region = new Region(new JLabel((Icon)new ImageIcon(ImageIO.read(new File ("download.png")))), 
+	 //setRegionList(new ArrayList<Region>().add(region));
+	  
+  }
+  
+  public JLabel getPlayerPortrait() {
+    return playerPortrait;
   }
 
-  public void changeWorldStanding(Region region, int reputation) {
-  }
-
-  public BufferedImage getPlayerPortrait() {
-    return null;
-  }
-
-  public void setPlayerPortrait(BufferedImage playerPortrait) {
+  public void setPlayerPortrait(JLabel playerPortrait) {
   }
 
   public ArrayList<Region> getRegionList() {
-    return null;
+    return regionList;
   }
 
   public void setRegionList(ArrayList<Region> regionList) {
+	  this.regionList = regionList;
   }
 
-  private ArrayList<item> getItemList() {
-    return null;
+  private ArrayList<MapItem> getItemList() {
+    return itemList;
   }
 
-  public void setItemList(ArrayList<Item> itemList) {
+  public void setItemList(ArrayList<MapItem> itemList) {
   }
 
   public ArrayList<Force> getForceList() {
@@ -47,6 +58,7 @@ public class Player {
   }
 
   public void setForceList(ArrayList<Force> forceList) {
+	  this.forceList = forceList;
   }
 
   public String getGameDataFileName() {
@@ -57,16 +69,25 @@ public class Player {
   }
 
   public int getExperience() {
-    return 0;
+    return experience;
   }
 
   public void setExperience(int experience) {
+	  this.experience = experience;
   }
 
   public int getCurrency() {
-    return 0;
+    return currency;
   }
 
   public void setCurrency(int currency) {
+	  this.currency = currency;
+  }
+  
+  public void changeWorldStanding(Region region, int reputation) {
+  }
+  
+  public void addExperience(int experience) {
+	  this.experience += experience;
   }
 }
