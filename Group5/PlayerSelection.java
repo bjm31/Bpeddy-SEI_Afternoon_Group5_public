@@ -97,17 +97,20 @@ public class PlayerSelection {
 
   public void selectionButton1Pressed()
   {
-	  new ShipHubMenu(selectionFrame, frameSize);
+	  selectionFrame.setVisible(false);
+	  new ShipHubMenu(frameSize);
   }
   
   public void selectionButton2Pressed()
   {
-	  new ShipHubMenu(selectionFrame, frameSize);
+	  selectionFrame.setVisible(false);
+	  new ShipHubMenu(frameSize);
   }
   
   public void selectionButton3Pressed()
   {
-	  new ShipHubMenu(selectionFrame, frameSize);
+	  selectionFrame.setVisible(false);
+	  new ShipHubMenu(frameSize);
   }
   
   public JButton getChoice1() {
