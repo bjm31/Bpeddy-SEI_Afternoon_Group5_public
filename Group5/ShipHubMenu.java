@@ -29,6 +29,8 @@ public class ShipHubMenu {
 	private JLabel exp;
 	private JLabel currency;
 	
+	private Player player;
+	
 	private Dimension frameSize;
 	private Dimension maxButtonSize;
 	private Dimension maxLabelSize;
@@ -36,11 +38,12 @@ public class ShipHubMenu {
 	
 	private JFrame shipHubFrame;
 
-	public ShipHubMenu(Dimension frameSize) {
+	public ShipHubMenu(Dimension frameSize, Player player) {
+		this.player = player;
 		this.frameSize = frameSize;
 		setShipHubMenuFrame(frameSize);
 	}
-  
+
 	public void setShipHubMenuFrame(Dimension frameSize) {
 		shipHubFrame = new JFrame("Ship Hub");
 		shipHubFrame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
@@ -70,19 +73,19 @@ public class ShipHubMenu {
 	public void forceSelectionButtonPressed()
 	{
 		shipHubFrame.dispose();
-		new ShipHubMenu(frameSize);
+		new ShipHubMenu(frameSize, player);
 	}
   
 	public void worldStandingButtonPressed()
 	{
 		shipHubFrame.dispose();
-		new ShipHubMenu(frameSize);
+		new ShipHubMenu(frameSize, player);
 	}
   
 	public void saveButtonPressed()
 	{
 		shipHubFrame.dispose();
-		new ShipHubMenu(frameSize);
+		new ShipHubMenu(frameSize, player);
 	}
 
 	public JLabel addTitle()
@@ -98,13 +101,13 @@ public class ShipHubMenu {
   
 	public JPanel addInfoPanel()
 	{
-		currency = new JLabel("Currency: $");
+		currency = new JLabel("Currency: $ " + player.getCurrency());
 		currency.setFont(new Font(title.getName(), Font.BOLD, 18));
 		currency.setForeground(java.awt.Color.white);
-		level = new JLabel("Level: ");
+		level = new JLabel("Level: " + player.getPlayerLevel());
 		level.setFont(new Font(title.getName(), Font.BOLD, 18));
 		level.setForeground(java.awt.Color.white);
-		exp = new JLabel("EXP: ");
+		exp = new JLabel("EXP: " + player.getExperience());
 		exp.setFont(new Font(title.getName(), Font.BOLD, 18));
 		exp.setForeground(java.awt.Color.white);
 	  
