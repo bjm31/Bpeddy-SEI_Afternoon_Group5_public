@@ -36,7 +36,6 @@ public class PlayerSelection {
   }
 
   public PlayerSelection(Dimension frameSize) {
-	  
 	  this.frameSize = frameSize;
 	  setSelectionFrame(frameSize);
   }
@@ -85,6 +84,7 @@ public class PlayerSelection {
 	  {
 		  e.printStackTrace();
 	  }
+	  c.insets = new Insets(0,25,0,0);
 	  c.weightx = 0.5;
 	  c.gridx = 0;
 	  c.gridy = 0;
@@ -92,11 +92,11 @@ public class PlayerSelection {
 	  c.weightx = 0.5;
 	  c.gridx = 1;
 	  c.gridy = 0;
-	  //selectionPanel1.add(label2, c);
+	  selectionPanel1.add(label2, c);
 	  c.weightx = 0.5;
 	  c.gridx = 2;
 	  c.gridy = 0;
-	  //selectionPanel1.add(label3, c);
+	  selectionPanel1.add(label3, c);
 	  c.insets = new Insets(25,0,0,0);
 	  c.weightx = 0.5;
 	  c.gridx = 0;
@@ -112,49 +112,27 @@ public class PlayerSelection {
 	  selectionPanel1.add(choice3, c);
 	  
 	  selectionFrame.add(selectionPanel1);
-	  
+	  selectionFrame.setVisible(true);
 	  System.out.println(selectionFrame.getSize().toString());
 	  
   }
 
   public void selectionButton1Pressed()
   {
-	  selectionFrame.setVisible(false);
+	  selectionFrame.dispose();
 	  new ShipHubMenu(frameSize);
   }
   
   public void selectionButton2Pressed()
   {
-	  selectionFrame.setVisible(false);
+	  selectionFrame.dispose();
 	  new ShipHubMenu(frameSize);
   }
   
   public void selectionButton3Pressed()
   {
-	  selectionFrame.setVisible(false);
+	  selectionFrame.dispose();
 	  new ShipHubMenu(frameSize);
-  }
-  
-  public JButton getChoice1() {
-  return null;
-  }
-
-  public void setChoice1(JButton jButton) {
-	  
-  }
-
-  public JButton getChoice2() {
-  return null;
-  }
-
-  public void setChoice2(JButton jButton) {
-  }
-
-  public JButton getChoice3() {
-  return null;
-  }
-
-  public void setChoice3(JButton jButton) {
   }
 
 }
