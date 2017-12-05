@@ -36,7 +36,8 @@ public class MissionSelection {
   private JLabel region5Title;
   
   private Dimension frameSize;
-  Dimension maxButtonSize;
+  private Dimension maxButtonSize;
+  private Dimension titleSize;
   
   private JFrame missionSelectionFrame;
 
@@ -59,22 +60,13 @@ public class MissionSelection {
 
 	  missionSelectionFrame.setVisible(true);
 	  missionSelectionFrame.setSize(frameSize);
-
-	  title = new JLabel("Mission Selection");
-	  title.setFont(new Font(title.getName(), Font.BOLD, 25));
-	  title.setForeground(java.awt.Color.white);
-	  
-	  Dimension titleSize = title.getPreferredSize();
-	  
-	  title.setBounds((int) (frameSize.getWidth() / 2 - titleSize.getWidth() / 2), (int) frameSize.getHeight() / 25,
-				(int) titleSize.getWidth(), (int) titleSize.getHeight());
 	  
 	  missionSelectionFrame.add(addRegion1MissionPanel());
 	  missionSelectionFrame.add(addRegion2MissionPanel());
 	  missionSelectionFrame.add(addRegion3MissionPanel());
 	  missionSelectionFrame.add(addRegion4MissionPanel());
 	  missionSelectionFrame.add(addRegion5MissionPanel());
-	  missionSelectionFrame.add(title);
+	  missionSelectionFrame.add(addTitle());
 	  
 	  System.out.println(missionSelectionFrame.getSize().toString());
   }
@@ -107,6 +99,17 @@ public class MissionSelection {
   {
 	  missionSelectionFrame.dispose();
 	  new MissionSelection(frameSize);
+  }
+  
+  public JLabel addTitle()
+  {
+	  title = new JLabel("Mission Selection");
+	  title.setFont(new Font(title.getName(), Font.BOLD, 25));
+	  title.setForeground(java.awt.Color.white);
+	  titleSize = title.getPreferredSize();
+	  title.setBounds((int) (frameSize.getWidth() / 2 - titleSize.getWidth() / 2), (int) frameSize.getHeight() / 25,
+				(int) titleSize.getWidth(), (int) titleSize.getHeight());
+	  return title;
   }
   
   public JPanel addRegion1MissionPanel()
