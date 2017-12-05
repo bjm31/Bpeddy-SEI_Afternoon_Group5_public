@@ -25,6 +25,9 @@ public class PlayerSelection {
   private JLabel label1;
   private JLabel label2;
   private JLabel label3;
+  private JLabel portrait1;
+  private JLabel portrait2;
+  private JLabel portrait3;
   
   private Player player;
   
@@ -68,21 +71,45 @@ public class PlayerSelection {
 
   public void selectionButton1Pressed()
   {
-	  player = new Player(label1);
+	  portrait1 = new JLabel();
+	  try {
+		  portrait1 = new JLabel((Icon)new ImageIcon(ImageIO.read(new File ("Portrait1.jpg"))));
+	  }
+	  catch (IOException e)
+	  {
+		  e.printStackTrace();
+	  }
+	  player = new Player(portrait1);
 	  selectionFrame.dispose();
 	  new ShipHubMenu(frameSize, player);
   }
   
   public void selectionButton2Pressed()
   {
-	  player = new Player(label1);
+	  portrait2 = new JLabel();
+	  try {
+		  portrait2 = new JLabel((Icon)new ImageIcon(ImageIO.read(new File ("Portrait2.jpg"))));
+	  }
+	  catch (IOException e)
+	  {
+		  e.printStackTrace();
+	  }
+	  player = new Player(portrait2);
 	  selectionFrame.dispose();
 	  new ShipHubMenu(frameSize, player);
   }
   
   public void selectionButton3Pressed()
   {
-	  player = new Player(label1);
+	  portrait3 = new JLabel();
+	  try {
+		  portrait3 = new JLabel((Icon)new ImageIcon(ImageIO.read(new File ("Portrait3.jpg"))));
+	  }
+	  catch (IOException e)
+	  {
+		  e.printStackTrace();
+	  }
+	  player = new Player(portrait3);
 	  selectionFrame.dispose();
 	  new ShipHubMenu(frameSize, player);
   }
