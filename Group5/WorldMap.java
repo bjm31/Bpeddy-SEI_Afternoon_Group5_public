@@ -1,25 +1,28 @@
 
 public class WorldMap {
 
-  public BufferedImage mapImage;
+  private JLabel mapImage;
+  
+  private ArrayList<Region> regionList;
 
-  public ArrayList<Region> regionList;
-
-  public void WorldMap( BufferedImage,  ArrayList<Region>) {
+  public WorldMap(JLabel mapImage, ArrayList<Region> regionList) {
+	  this.mapImage = mapImage;
+	  this.regionList = regionList;
   }
 
-  public BufferedImage getMapImage() {
-    return null;
+  public JLabel getMapImage() {
+	  return mapImage;
   }
 
-  public void setMapImage( BufferedImage) {
+  public void setMapImage(JLabel mapImage) {
   }
 
   public ArrayList<Region> getRegionList() {
-    return null;
+	  return regionList;
   }
 
-  public void setRegionList( ArrayList<Region>) {
+  public void setRegionList(ArrayList<Region> regionList) {
+	  this.regionList = regionList;
   }
 
 }
