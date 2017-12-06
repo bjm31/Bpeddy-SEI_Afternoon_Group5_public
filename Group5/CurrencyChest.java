@@ -13,8 +13,8 @@ public class CurrencyChest extends MapItem {
 
   public CurrencyChest(int xPos, int yPos, Icon image, int currency) {
 	  super(xPos,yPos);
-	  setImage(image);
-	  setCurrency(currency);
+	  this.setImage(image);
+	  this.currency = currency;
   }
 
   public int getCurrency() {
