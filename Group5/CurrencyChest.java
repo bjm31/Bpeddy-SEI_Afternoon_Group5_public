@@ -1,30 +1,38 @@
 import java.util.Vector;
 
-public class CurrencyChest extends , MapItem {
+import javax.swing.JLabel;
 
-  public BufferedImage image;
+public class CurrencyChest extends MapItem {
 
-  public int xPosition;
+  private JLabel image;
 
-  public int yPosition;
+  public int xPos;
+
+  public int yPos;
 
   public int currency;
 
-  public void CurrencyChest( int,  int,  BufferedImage,  int) {
-  }
-
-  public int accessChest() {
-  return 0;
-  }
-
-  public void removeChest() {
+  public CurrencyChest(int xPos, int yPos, JLabel image, int currency) {
+	  super(xPos,yPos);
+	  this.image = image;
+	  this.currency = currency;
   }
 
   public int getCurrency() {
-  return 0;
+	  return currency;
   }
 
-  public void setCurrency( int) {
+  public void setCurrency(int currency) {
+	  this.currency = currency;
+  }
+  
+  public int accessChest() {
+	  removeChest();
+	  return getCurrency();
+  }
+
+  private void removeChest() {
+	  image.setVisible(false);
   }
 
 }

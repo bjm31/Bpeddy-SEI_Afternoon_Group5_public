@@ -9,14 +9,14 @@ public class Region {
 	private JLabel regionImage;
 
 	private ArrayList<MapItem> mapItemList;
-
+	
 	private ArrayList<Diplomat> diplomatList;
 
 	private ArrayList<Mission> missionList;
   
 	private int reputation;
 
-  public Region(String regionName, JLabel regionImage, ArrayList<Diplomat> diplomatList, ArrayList<MapItem> mapItemList, ArrayList<Mission> missionList, int reputation) {
+  public Region(String regionName, JLabel regionImage, ArrayList<Diplomat> diplomatList, ArrayList<Force> forceList, ArrayList<MapItem> mapItemList, ArrayList<Mission> missionList, int reputation) {
 	  this.regionName = regionName;
 	  this.regionImage = regionImage;
 	  this.diplomatList = diplomatList;

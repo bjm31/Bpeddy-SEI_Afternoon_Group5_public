@@ -1,22 +1,35 @@
+import javax.swing.JLabel;
 
 public class EnemyNPC extends MapItem {
 
   public Force force;
 
-  public BufferedImage image;
+  public JLabel image;
 
-  public void EnemyNPC( int,  int,  BufferedImage,  Force) {
+  public EnemyNPC(int xPos, int yPos, JLabel image, Force force) {
+	  super(xPos,yPos);
+	  this.image = image;
+	  this.force = force;
   }
 
   public int fightNPC() {
-  return 0;
+	  return 0;
+  }
+  
+  public JLabel getImage() {
+	  return image;
   }
 
+  public void setImage(JLabel image) {
+	  this.image = image;
+  }
+  
   public Force getForce() {
-  return null;
+	  return force;
   }
 
-  public void setForce( Force) {
+  public void setForce(Force force) {
+	  this.force = force;
   }
 
 }
