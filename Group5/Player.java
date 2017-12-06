@@ -1,5 +1,4 @@
 import java.io.File;
-import java.io.IOException;
 import java.util.ArrayList;
 
 import javax.imageio.ImageIO;
@@ -15,7 +14,7 @@ public class Player {
 
   private ArrayList<MapItem> itemList;
 
-  private ArrayList<Force> forceList;
+  private ArrayList<Force> forceList = new ArrayList<Force>();
 
   private String gameDataFileName;
 
@@ -25,22 +24,25 @@ public class Player {
   
   private int level;
 
-  public Player(JLabel playerPortrait) throws IOException {
+  public Player(JLabel playerPortrait) {
 	  
 	  setPlayerPortrait(playerPortrait);
 	  setPlayerLevel(1);
 	  setPlayerExperience(0);
 	  setPlayerCurrency(0);
 	  
-	  Mission mission = new Mission(50, 10000, "Defeat one North American force.", false);
-	  EnemyNPC enemyNPC = new EnemyNPC(10, 10, new JLabel((Icon)new ImageIcon(ImageIO.read(new File ("enemy_force.jpg")))), new Force(3, 3, 12));
-	  CurrencyChest currencyChest = new CurrencyChest(15, 10, new JLabel((Icon)new ImageIcon(ImageIO.read(new File ("map_chest.jpg")))), 5000);
+	  forceList.add(new Force("Beginner Force", 10, 10, 100));
 	  
-	  Region region = new Region("North America", new JLabel((Icon)new ImageIcon(ImageIO.read(new File ("download.png")))), new ArrayList<Diplomat>(), new ArrayList<Force>(),
-			  new ArrayList<MapItem>(), new ArrayList<Mission>(), 0);
-	  region.getMapItemList().add(enemyNPC);
-	  region.getMapItemList().add(currencyChest);
-	  region.getMissionList().add(mission);
+	  //Mission mission = new Mission(50, 10000, "Defeat one North American force.", false);
+	  //EnemyNPC enemyNPC = new EnemyNPC(10, 10, new JLabel((Icon)new ImageIcon(ImageIO.read(new File ("enemy_force.jpg")))), new Force(3, 3, 12));
+	  //CurrencyChest currencyChest = new CurrencyChest(15, 10, new JLabel((Icon)new ImageIcon(ImageIO.read(new File ("map_chest.jpg")))), 5000);
+	  
+	  //Region region = new Region("North America", new JLabel((Icon)new ImageIcon(ImageIO.read(new File ("download.png")))), new ArrayList<Diplomat>(), new ArrayList<Force>(),
+			  //new ArrayList<MapItem>(), new ArrayList<Mission>(), 0);
+	  //region.getMapItemList().add(enemyNPC);
+	  //region.getMapItemList().add(currencyChest);
+	  //region.getMissionList().add(mission);
+	  
   }
   
   public JLabel getPlayerPortrait() {
@@ -92,6 +94,22 @@ public class Player {
 
   public ArrayList<Force> getForceList() {
     return null;
+  }
+  
+  public Force getForce(int i) {
+	  return forceList.get(i);
+  }
+  
+  public int getForceAttack(int i) {
+	  return forceList.get(i).getAttack();
+  }
+  
+  public int getForceDefense(int i) {
+	  return forceList.get(i).getDefense();
+  }
+  
+  public int getForceStamina(int i) {
+	  return forceList.get(i).getStamina();
   }
 
   public void setForceList(ArrayList<Force> forceList) {
