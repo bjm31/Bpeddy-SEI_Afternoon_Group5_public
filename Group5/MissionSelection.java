@@ -4,6 +4,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.File;
 import java.io.IOException;
+import java.util.ArrayList;
 
 import javax.imageio.ImageIO;
 import javax.swing.Icon;
@@ -77,21 +78,21 @@ public class MissionSelection {
 	  System.out.println(missionSelectionFrame.getSize().toString());
   }
   
-  public void region1Mission1ButtonPressed()
+  public void region1Mission1ButtonPressed() throws IOException
   {
 	  missionSelectionFrame.dispose();
 	  
 	  Mission mission = new Mission(50, 10000, "Defeat one North American force.", false);
-	  EnemyNPC enemyNPC = new EnemyNPC(10, 10, new JLabel((Icon)new ImageIcon(ImageIO.read(new File ("enemy_force.jpg")))), new Force(3, 3, 12));
-	  CurrencyChest currencyChest = new CurrencyChest(15, 10, new JLabel((Icon)new ImageIcon(ImageIO.read(new File ("map_chest.jpg")))), 5000);
+	  EnemyNPC enemyNPC = new EnemyNPC(10, 4, new ImageIcon("enemy_force_button.jpg"), new Force("NA Force",3, 3, 12));
+	  CurrencyChest currencyChest = new CurrencyChest(15, 6, new ImageIcon("map_chest_button.jpg"), 5000);
 	  
-	  Region region = new Region("North America", new JLabel((Icon)new ImageIcon(ImageIO.read(new File ("download.png")))), new ArrayList<Diplomat>(), new ArrayList<Force>(),
-			  new ArrayList<MapItem>(), new ArrayList<Mission>(), 0);
+	  Region region = new Region("North America", new JLabel((Icon)new ImageIcon(ImageIO.read(new File ("download.png")))), new ArrayList<Diplomat>(), 
+			  new ArrayList<Force>(), new ArrayList<MapItem>(), new ArrayList<Mission>(), 0);
 	  region.getMapItemList().add(enemyNPC);
 	  region.getMapItemList().add(currencyChest);
 	  region.getMissionList().add(mission);
 	  
-	  new PlayingEnvironment(region, frameSize);
+	  new PlayingEnvironment(player, region, frameSize);
   }
   
   public void region2Mission1ButtonPressed()
@@ -144,7 +145,12 @@ public class MissionSelection {
 	  maxButtonSize = region1Mission1Button.getPreferredSize();
 	  region1Mission1Button.addActionListener(new ActionListener() {
 		  public void actionPerformed(ActionEvent e) {
-			  region1Mission1ButtonPressed(); 
+			  try {
+				region1Mission1ButtonPressed();
+			} catch (IOException e1) {
+				// TODO Auto-generated catch block
+				e1.printStackTrace();
+			} 
 	  		} 
 	  } );
 	  region1MissionPanel = new JPanel();
