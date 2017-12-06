@@ -86,7 +86,7 @@ public class ShipHubMenu {
 	public void saveButtonPressed()
 	{
 		shipHubFrame.dispose();
-		new ShipHubMenu(frameSize, player);
+		new SaveGame(frameSize, player);
 	}
 
 	public JLabel addTitle()
