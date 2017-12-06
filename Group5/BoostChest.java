@@ -10,20 +10,23 @@ public class BoostChest extends MapItem {
     setImage(image);
     setBoost(boost);
   }
-
-  public int accessChest() {
-    return 0;
-  }
-
-  public void removeChest() {
-  }
-
+  
   public int getBoost() {
     return boost;
   }
 
   public void setBoost(int boost) {
     this.boost = boost;
+  }
+  
+    public int accessChest(Region region, Point chestPoint) {
+	  removeChest(region,chestPoint);
+	  return getBoost();
+  }
+
+  private void removeChest(Region region, Point chestPoint) {
+	  MapItem item = region.findMapItem(chestPoint.x, chestPoint.y);
+	  region.getMapItemList().remove(item);
   }
 
 }
