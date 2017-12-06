@@ -1,21 +1,20 @@
-import java.util.Vector;
+import java.awt.Point;
+import java.util.ArrayList;
 
+import javax.swing.Icon;
+import javax.swing.JButton;
 import javax.swing.JLabel;
 
 public class CurrencyChest extends MapItem {
 
-  private JLabel image;
-
-  public int xPos;
-
-  public int yPos;
+  private Icon image;
 
   public int currency;
 
-  public CurrencyChest(int xPos, int yPos, JLabel image, int currency) {
+  public CurrencyChest(int xPos, int yPos, Icon image, int currency) {
 	  super(xPos,yPos);
-	  this.image = image;
-	  this.currency = currency;
+	  setImage(image);
+	  setCurrency(currency);
   }
 
   public int getCurrency() {
@@ -25,14 +24,23 @@ public class CurrencyChest extends MapItem {
   public void setCurrency(int currency) {
 	  this.currency = currency;
   }
+
+  public Icon getImage() {
+	return image;
+  }
+
+  public void setImage(Icon image) {
+	this.image = image;
+  }
   
-  public int accessChest() {
-	  removeChest();
+  public int accessChest(Region region, Point chestPoint) {
+	  removeChest(region,chestPoint);
 	  return getCurrency();
   }
 
-  private void removeChest() {
-	  image.setVisible(false);
+  private void removeChest(Region region, Point chestPoint) {
+	  MapItem item = region.findMapItem(chestPoint.x, chestPoint.y);
+	  region.getMapItemList().remove(item);
   }
 
 }
