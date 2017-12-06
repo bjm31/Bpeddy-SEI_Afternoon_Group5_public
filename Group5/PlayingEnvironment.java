@@ -1,6 +1,13 @@
+import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.GridLayout;
+import java.awt.Point;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.util.ArrayList;
 
+import javax.swing.Icon;
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -12,9 +19,22 @@ public class PlayingEnvironment {
 
   private Dimension frameSize;
   
-  public PlayingEnvironment(Region region, Dimension frameSize) {
-	  this.region = region;
-	  this.frameSize = frameSize;
+  private Player player;
+  
+  private Point current;
+  
+  private JButton[][] buttons;
+  
+  ArrayList<Point> enemyPoints = new ArrayList<Point>();
+  ArrayList<Point> chestPoints = new ArrayList<Point>();
+  ArrayList<Point> allyPoints = new ArrayList<Point>();
+  
+  public PlayingEnvironment(Player player, Region region, Dimension frameSize) {
+	  
+	  this.player = player;
+	  
+	  setRegion(region);
+	  setFrameSize(frameSize);
 	  
 	  createPlayingFrame();
   }
@@ -35,7 +55,7 @@ public class PlayingEnvironment {
 	  this.frameSize = frameSize;
   }
   
-  public void createPlayingFrame() {
+  private void createPlayingFrame() {
 	  
 	  JFrame playingFrame = new JFrame();
 	  playingFrame.setContentPane(region.getRegionImage());
@@ -46,18 +66,106 @@ public class PlayingEnvironment {
 	  buttonPanel.setSize(getFrameSize());
 	  buttonPanel.setLayout(new GridLayout(10,20));
 	  
+	  buttons = new JButton[10][20];
+	  
+	  ButtonListener listener = new ButtonListener();
+	  
 	  for (int r = 0; r < 10; r++) {
 		  for (int c = 0; c < 20; c++) {
 			  JButton cellButton = new JButton(r + "," + c);
 			  cellButton.setOpaque(false);
 			  cellButton.setContentAreaFilled(false);
+			  buttons[r][c] = cellButton;
+			  buttons[r][c].addActionListener(listener);
 			  buttonPanel.add(cellButton);
 		  }
 		  
 	  }
 	  
+	  current = new Point(19,9);
+	  
 	  playingFrame.add(buttonPanel);
+	  
+	  loadMapItems();
+	  
 	  playingFrame.setVisible(true);
+  }
+  
+  private void loadMapItems() {
+	  
+	  buttons[9][19].setIcon(player.getPlayerPortrait().getIcon()); 
+	  
+	  for (MapItem item : region.getMapItemList()) {
+		buttons[item.getYPos()][item.getXPos()].setIcon(item.getImage());
+		
+		if (item instanceof EnemyNPC) {
+			enemyPoints.add(new Point(item.getXPos(),item.getYPos()));
+		}
+		
+		else if (item instanceof CurrencyChest || item instanceof BoostChest) {
+			chestPoints.add(new Point(item.getXPos(),item.getYPos()));
+		}
+		
+		else {
+			allyPoints.add(new Point(item.getXPos(),item.getYPos()));
+		}
+	  }
+	  
+  }
+  
+  
+  
+  public boolean checkMove(int x, int y) {
+	  int val = Math.abs(current.x - x) + Math.abs(current.y - y);
+	  
+	  return val == 1;
+  }
+  
+  private class ButtonListener implements ActionListener {
+      public void actionPerformed(ActionEvent e) {
+    	  
+         JButton clicked = (JButton) e.getSource();
+         
+         for (int r = 0; r < 10; r++) {
+            for (int c = 0; c < 20; c++) {
+               if (clicked == buttons[r][c]) {
+                  if (checkMove(c, r)) {
+                	 buttons[current.y][current.x].setIcon(null);
+                     current = new Point(c, r);
+                     buttons[r][c].setIcon(player.getPlayerPortrait().getIcon());
+                     
+                     for (Point p : enemyPoints) {
+                    	 //if ((current.x - 1 == p.x && current.y == p.y) || (current.x == p.x && current.y + 1 == p.y)
+                    		//	 || (current.x + 1 == p.x && current.y == p.y) || (current.x == p.x && current.y - 1 == p.y)) {
+                    	if (current == p) {	 
+                    	 EnemyNPC enemyNPC = (EnemyNPC) region.findMapItem(p.x, p.y);
+                    		 Force enemy = enemyNPC.fightNPC(player.getForce(0));
+                    		 if (enemy != null) {
+                    			 player.getForceList().add(enemy);
+                    			 region.getMapItemList().remove(enemyNPC);
+                    			 buttons[p.y][p.x].setIcon(null);
+                    		 }
+                    	 }
+                     }
+                     
+                     for (Point p : chestPoints) {
+                    	 if (current == p) {
+                    		 MapItem chest = region.findMapItem(current.x, current.y);
+                    		 if (chest instanceof CurrencyChest) {
+                    			 CurrencyChest currencyChest = (CurrencyChest) chest;
+                    			 player.addCurrency(currencyChest.accessChest(region,current));
+                    			 buttons[r][c].setIcon(null);
+                    		 }
+                    	 }
+                     }
+                  } 
+                  else {
+                     System.out.println("INVALID MOVE");
+                  }
+               }
+            }
+         }
+      }
   }
 
 }
