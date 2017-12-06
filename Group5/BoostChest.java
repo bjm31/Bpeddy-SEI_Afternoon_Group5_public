@@ -1,29 +1,29 @@
 
 public class BoostChest extends MapItem {
 
-  public BufferedImage image;
+  private Icon image;
 
-  public int xPosition;
+  private int boost;
 
-  public int yPosition;
-
-  public int boost;
-
-  public void BoostChest( int,  int,  BufferedImage,  int) {
+  public void BoostChest(int xPos, int yPos, Icon image, int boost) {
+    super(xPos,yPos);
+    setImage(image);
+    setBoost(boost);
   }
 
   public int accessChest() {
-  return 0;
+    return 0;
   }
 
   public void removeChest() {
   }
 
   public int getBoost() {
-  return 0;
+    return boost;
   }
 
-  public void setBoost( int) {
+  public void setBoost(int boost) {
+    this.boost = boost;
   }
 
 }
