@@ -1,4 +1,5 @@
 import java.io.File;
+import java.io.IOException;
 import java.util.ArrayList;
 
 import javax.imageio.ImageIO;
@@ -24,16 +25,22 @@ public class Player {
   
   private int level;
 
-  public Player(JLabel playerPortrait) {
+  public Player(JLabel playerPortrait) throws IOException {
 	  
 	  setPlayerPortrait(playerPortrait);
 	  setPlayerLevel(1);
 	  setPlayerExperience(0);
 	  setPlayerCurrency(0);
 	  
-	 //Region region = new Region(new JLabel((Icon)new ImageIcon(ImageIO.read(new File ("download.png")))), 
-	 //setRegionList(new ArrayList<Region>().add(region));
+	  Mission mission = new Mission(50, 10000, "Defeat one North American force.", false);
+	  MapItem enemyForce = new MapItem(10, 10, new JLabel((Icon)new ImageIcon(ImageIO.read(new File ("enemy_force.jpg")))));
+	  MapItem chest1 = new MapItem(15, 10, new JLabel((Icon)new ImageIcon(ImageIO.read(new File ("map_chest.jpg")))));
 	  
+	  Region region = new Region("North America", new JLabel((Icon)new ImageIcon(ImageIO.read(new File ("download.png")))), new ArrayList<Diplomat>(), 
+			  new ArrayList<MapItem>(), new ArrayList<Mission>(), 0);
+	  region.getMapItemList().add(enemyForce);
+	  region.getMapItemList().add(chest1);
+	  region.getMissionList().add(mission);
   }
   
   public JLabel getPlayerPortrait() {
