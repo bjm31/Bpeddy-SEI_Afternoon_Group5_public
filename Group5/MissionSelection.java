@@ -21,12 +21,14 @@ public class MissionSelection {
   private static JButton region3Mission1Button;
   private static JButton region4Mission1Button;
   private static JButton region5Mission1Button;
+  private static JButton backButton;
   
   private JPanel region1MissionPanel;
   private JPanel region2MissionPanel;
   private JPanel region3MissionPanel;
   private JPanel region4MissionPanel;
   private JPanel region5MissionPanel;
+  private JPanel backPanel;
   
   private JLabel title;
   private JLabel region1Title;
@@ -39,10 +41,13 @@ public class MissionSelection {
   private Dimension maxButtonSize;
   private Dimension titleSize;
   
+  private Player player;
+  
   private JFrame missionSelectionFrame;
 
-  public MissionSelection(Dimension frameSize) {
+  public MissionSelection(Dimension frameSize, Player player) {
 	  this.frameSize = frameSize;
+	  this.player = player;
 	  setMissionSelectionFrame(frameSize);
   }
   
@@ -54,7 +59,7 @@ public class MissionSelection {
 			missionSelectionFrame.setContentPane(new JLabel((Icon) new ImageIcon(ImageIO.read(new File("World_Map_Basic.png")))));
 	     	} catch (IOException e) {
 	    		e.printStackTrace();
-	   }
+	   }	
 	  
 	  missionSelectionFrame.pack();
 
@@ -67,6 +72,7 @@ public class MissionSelection {
 	  missionSelectionFrame.add(addRegion4MissionPanel());
 	  missionSelectionFrame.add(addRegion5MissionPanel());
 	  missionSelectionFrame.add(addTitle());
+	  missionSelectionFrame.add(addBackPanel());
 	  
 	  System.out.println(missionSelectionFrame.getSize().toString());
   }
@@ -74,31 +80,37 @@ public class MissionSelection {
   public void region1Mission1ButtonPressed()
   {
 	  missionSelectionFrame.dispose();
-	  new MissionSelection(frameSize);
+	  new MissionSelection(frameSize, player);
   }
   
   public void region2Mission1ButtonPressed()
   {
 	  missionSelectionFrame.dispose();
-	  new MissionSelection(frameSize);
+	  new MissionSelection(frameSize, player);
   }
   
   public void region3Mission1ButtonPressed()
   {
 	  missionSelectionFrame.dispose();
-	  new MissionSelection(frameSize);
+	  new MissionSelection(frameSize, player);
   }
   
   public void region4Mission1ButtonPressed()
   {
 	  missionSelectionFrame.dispose();
-	  new MissionSelection(frameSize);
+	  new MissionSelection(frameSize, player);
   }
   
   public void region5Mission1ButtonPressed()
   {
 	  missionSelectionFrame.dispose();
-	  new MissionSelection(frameSize);
+	  new MissionSelection(frameSize, player);
+  }
+  
+  public void backButtonPressed()
+  {
+	  missionSelectionFrame.dispose();
+	  new ShipHubMenu(frameSize, player);
   }
   
   public JLabel addTitle()
@@ -215,6 +227,23 @@ public class MissionSelection {
 	  region5MissionPanel.setBounds((int) (frameSize.getWidth() - maxButtonSize.getWidth() / 2 - 300), (int) (frameSize.getHeight() / 2 - maxButtonSize.getHeight() / 2),
 	    		(int) (maxButtonSize.getWidth()), (int) ((maxButtonSize.getHeight())) * 3);
 	  return region5MissionPanel;
+  }
+  
+  public JPanel addBackPanel()
+  {
+	  backButton = new JButton("Back");
+	  maxButtonSize = backButton.getPreferredSize();
+	  backButton.addActionListener(new ActionListener() {
+		  public void actionPerformed(ActionEvent e) {
+			  backButtonPressed();
+		  }
+	  } );
+	  backPanel = new JPanel();
+	  backPanel.setOpaque(false);
+	  backPanel.add(backButton);
+	  backPanel.setBounds((int) (frameSize.getWidth() - maxButtonSize.getWidth() / 2 - 50), (int) (frameSize.getHeight() - maxButtonSize.getHeight() / 2 - 60),
+	    		(int) (maxButtonSize.getWidth()), (int) ((maxButtonSize.getHeight())) * 3);
+	  return backPanel;
   }
 
 }
