@@ -1,6 +1,7 @@
 import java.awt.Dimension;
 import java.awt.GridLayout;
 
+import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
@@ -14,9 +15,8 @@ public class PlayingEnvironment {
   public PlayingEnvironment(Region region, Dimension frameSize) {
 	  this.region = region;
 	  this.frameSize = frameSize;
-	  this.regionImage = regionImage;
 	  
-	  createPlayingEnvironment();
+	  createPlayingFrame();
   }
 
   public Region getRegion() {
@@ -38,19 +38,25 @@ public class PlayingEnvironment {
   public void createPlayingFrame() {
 	  
 	  JFrame playingFrame = new JFrame();
+	  playingFrame.setContentPane(region.getRegionImage());
 	  playingFrame.setSize(getFrameSize());
 	  
-	  GridLayout gridLayout = new GridLayout(10,20);
+	  JPanel buttonPanel = new JPanel();
+	  buttonPanel.setOpaque(false);
+	  buttonPanel.setSize(getFrameSize());
+	  buttonPanel.setLayout(new GridLayout(10,20));
 	  
-	  for (int r = 1; r <= gridLayout.getRows(); r++) {
-		  for int (c = 1; c <= gridLayout.getColumns(); c++) {
-			  JPanel cellPanel = new JPanel();
+	  for (int r = 0; r < 10; r++) {
+		  for (int c = 0; c < 20; c++) {
 			  JButton cellButton = new JButton(r + "," + c);
-			  cellPanel.add(cellButton);
+			  cellButton.setOpaque(false);
+			  cellButton.setContentAreaFilled(false);
+			  buttonPanel.add(cellButton);
 		  }
+		  
 	  }
 	  
-	  playingFrame.add(gridLayout);
+	  playingFrame.add(buttonPanel);
 	  playingFrame.setVisible(true);
   }
 
