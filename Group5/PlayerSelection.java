@@ -32,15 +32,16 @@ public class PlayerSelection {
   private Player player;
   
   private JPanel selectionPanel;
+  private JPanel backPanel;
 
+  private static JButton backButton;
   private JButton choice1;
-
   private JButton choice2;
-
   private JButton choice3;
-
+  
   private Dimension frameSize;
   private Dimension titleSize;
+  private Dimension maxButtonSize;
   
   private GridBagConstraints constraints;
   
@@ -63,6 +64,7 @@ public class PlayerSelection {
 	  selectionFrame.setSize(frameSize);
 	  selectionFrame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);	  
 	  selectionFrame.add(addTitle());
+	  selectionFrame.add(addBackPanel());
 	  selectionFrame.add(addSelectionPanel());
 	  selectionFrame.setVisible(true);
 	  System.out.println(selectionFrame.getSize().toString());
@@ -112,6 +114,12 @@ public class PlayerSelection {
 	  player = new Player(portrait3);
 	  selectionFrame.dispose();
 	  new ShipHubMenu(frameSize, player);
+  }
+  
+  public void backButtonPressed()
+  {
+	  selectionFrame.dispose();
+	  new GameLaunch();
   }
   
   public JPanel addSelectionPanel()
@@ -191,6 +199,23 @@ public class PlayerSelection {
 	  title.setBounds((int) (frameSize.getWidth() / 2 - titleSize.getWidth() / 2), (int) frameSize.getHeight() / 90,
 				(int) titleSize.getWidth(), (int) titleSize.getHeight());
 	  return title;
+  }
+  
+  public JPanel addBackPanel()
+  {
+	  backButton = new JButton("Back");
+	  maxButtonSize = backButton.getPreferredSize();
+	  backButton.addActionListener(new ActionListener() {
+		  public void actionPerformed(ActionEvent e) {
+			  backButtonPressed();
+		  }
+	  } );
+	  backPanel = new JPanel();
+	  backPanel.setOpaque(false);
+	  backPanel.add(backButton);
+	  backPanel.setBounds((int) (frameSize.getWidth() - maxButtonSize.getWidth() / 2 - 50), (int) (frameSize.getHeight() - maxButtonSize.getHeight() / 2 - 60),
+	    		(int) (maxButtonSize.getWidth()), (int) ((maxButtonSize.getHeight())) * 3);
+	  return backPanel;
   }
 
 }
