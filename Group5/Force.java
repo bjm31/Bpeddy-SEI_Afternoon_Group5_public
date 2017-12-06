@@ -1,36 +1,37 @@
 
 public class Force {
 
-  public int attack;
+  private int attack;
 
-  public int defense;
+  private int defense;
 
-  public int stamina;
+  private int stamina;
 
-  public BufferedImage image;
-
-  public void Force( int,  int,  int,  BufferedImage) {
+  public Force(int attack, int defense, int stamina) {
   }
 
   public int getAttack() {
-  return 0;
+	  return attack;
   }
 
-  public void setAttack( int) {
+  public void setAttack(int attack) {
+	  this.attack = attack;
   }
 
   public int getDefense() {
-  return 0;
+	  return defense;
   }
 
-  public void setDefense( int) {
+  public void setDefense(int defense) {
+	  this.defense = defense;
   }
 
   public int getStamina() {
-  return 0;
+	  return stamina;
   }
 
-  public void setStamina( int) {
+  public void setStamina(int stamina) {
+	  this.stamina = stamina;
   }
 
 }
