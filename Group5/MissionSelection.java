@@ -80,7 +80,18 @@ public class MissionSelection {
   public void region1Mission1ButtonPressed()
   {
 	  missionSelectionFrame.dispose();
-	  new MissionSelection(frameSize, player);
+	  
+	  Mission mission = new Mission(50, 10000, "Defeat one North American force.", false);
+	  EnemyNPC enemyNPC = new EnemyNPC(10, 10, new JLabel((Icon)new ImageIcon(ImageIO.read(new File ("enemy_force.jpg")))), new Force(3, 3, 12));
+	  CurrencyChest currencyChest = new CurrencyChest(15, 10, new JLabel((Icon)new ImageIcon(ImageIO.read(new File ("map_chest.jpg")))), 5000);
+	  
+	  Region region = new Region("North America", new JLabel((Icon)new ImageIcon(ImageIO.read(new File ("download.png")))), new ArrayList<Diplomat>(), new ArrayList<Force>(),
+			  new ArrayList<MapItem>(), new ArrayList<Mission>(), 0);
+	  region.getMapItemList().add(enemyNPC);
+	  region.getMapItemList().add(currencyChest);
+	  region.getMissionList().add(mission);
+	  
+	  new PlayingEnvironment(region, frameSize);
   }
   
   public void region2Mission1ButtonPressed()
