@@ -68,7 +68,7 @@ public class ShipHubMenu {
 	public void missionSelectionButtonPressed()
 	{
 		shipHubFrame.dispose();
-		new MissionSelection(frameSize);
+		new MissionSelection(frameSize, player);
 	}
   
 	public void forceSelectionButtonPressed()
