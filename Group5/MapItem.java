@@ -1,4 +1,5 @@
-
+import javax.swing.Icon;
+import javax.swing.JLabel;
 
 public class MapItem {
 
@@ -11,20 +12,24 @@ public class MapItem {
 	  this.yPos = yPos;
   }
 
-  public int getXPosition() {
+  public int getXPos() {
 	  return xPos;
   }
 
-  public void setXPosition(int xPos) {
+  public void setXPos(int xPos) {
 	  this.xPos = xPos;
   }
 
-  public int getYPosition() {
+  public int getYPos() {
 	  return yPos;
   }
 
-  public void setYPosition(int yPos) {
+  public void setYPos(int yPos) {
 	  this.yPos = yPos;
   }
+  
+  public Icon getImage() {
+	return null;
+}
 
 }
