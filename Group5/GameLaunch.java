@@ -2,8 +2,6 @@ import java.awt.Dimension;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.awt.event.ItemEvent;
-import java.awt.event.ItemListener;
 import java.io.File;
 import java.io.IOException;
 import javax.imageio.ImageIO;
@@ -23,8 +21,15 @@ public class GameLaunch {
 	private static JFrame launchFrame;
 	private static Dimension frameSize;
 	
-	public static void main(String[] args) {
-		
+	public static void main(String[] args) {		
+		setMainMenuFrame();
+	}
+	
+	public GameLaunch() {
+		setMainMenuFrame();
+	}
+	
+	public static void setMainMenuFrame() {
 		launchFrame = new JFrame("<Group5> Main Menu");
 		launchFrame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
 		 
@@ -54,6 +59,11 @@ public class GameLaunch {
 		} );
 	    
 	    loadGameButton = new JButton("Load Game");
+	    loadGameButton.addActionListener(new ActionListener() {
+			  public void actionPerformed(ActionEvent e) {
+			  		loadGameButtonPressed(); 
+			  } 
+		} );
 	     
 		exitGameButton = new JButton("Exit Game");
 		exitGameButton.addActionListener(new ActionListener(){
@@ -79,11 +89,16 @@ public class GameLaunch {
 	    launchFrame.add(title);
 	    launchFrame.setVisible(true);
 	}
-	
 	public static void newGameButtonPressed()
 	{
 		  launchFrame.dispose();
 		  new PlayerSelection(frameSize);
+	}
+	
+	public static void loadGameButtonPressed()
+	{
+		launchFrame.dispose();
+		new GameLaunch();
 	}
 	
 }
