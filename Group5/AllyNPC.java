@@ -1,11 +1,15 @@
+import javax.swing.Icon;
 
 public class AllyNPC extends MapItem {
 
   private Force force;
 
-  private BufferedImage image;
+  private Icon image;
 
-  public void AllyNPC(int,  int,  BufferedImage,  Force) {
+  public AllyNPC(int xPos, int yPos, Icon image, Force force) {
+	  super(xPos,yPos);
+	  setImage(image);
+	  setForce(force);
   }
 
   public Force recruitNPC() {
@@ -13,10 +17,19 @@ public class AllyNPC extends MapItem {
   }
 
   public Force getForce() {
-    return null;
+    return force;
   }
 
   public void setForce(Force force) {
+	  this.force = force;
   }
+
+public Icon getImage() {
+	return image;
+}
+
+public void setImage(Icon image) {
+	this.image = image;
+}
 
 }
