@@ -70,8 +70,8 @@ public class SaveGame {
 	  
 	  public void saveAndContinueButtonPressed()
 		{
-		  saveGameFrame.dispose();
-			new SaveGame(frameSize, player);
+		  	saveGameFrame.dispose();
+			new ShipHubMenu(frameSize, player);
 		}
 	  
 	  public void saveAndMainButtonPressed()
