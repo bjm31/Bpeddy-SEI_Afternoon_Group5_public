@@ -1,16 +1,11 @@
-import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.GridLayout;
 import java.awt.Point;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
-
-import javax.swing.Icon;
-import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
-import javax.swing.JLabel;
 import javax.swing.JPanel;
 
 public class PlayingEnvironment {
@@ -26,8 +21,6 @@ public class PlayingEnvironment {
   private JButton[][] buttons;
   
   private JFrame playingFrame;
-  
-  private EnemyNPC enemyNPC;
   
   private Force enemy;
   
@@ -153,13 +146,11 @@ public class PlayingEnvironment {
                     	 //if ((current.x - 1 == p.x && current.y == p.y) || (current.x == p.x && current.y + 1 == p.y)
                     		//	 || (current.x + 1 == p.x && current.y == p.y) || (current.x == p.x && current.y - 1 == p.y)) {
                     	if (current.equals(p)) {	 
-                    		
-                            enemyNPC = (EnemyNPC) region.findMapItem(p.x, p.y);
-                    		enemy = enemyNPC.fightNPC(player.getForce(0));
-                    		enemyPoints.remove(p);
+                    		enemy = ((EnemyNPC) region.findMapItem(p.x, p.y)).fightNPC(player.getForce(0));
                     		 if (enemy != null) {
+                    			 enemyPoints.remove(p);
                     			 player.getForceList().add(enemy);
-                    			 region.getMapItemList().remove(enemyNPC);
+                    			 region.getMapItemList().remove(region.findMapItem(p.x, p.y));
                     			 break;
                     		 } 
                     	 }
