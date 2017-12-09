@@ -9,8 +9,8 @@ public class EnemyNPC extends MapItem {
 
   public EnemyNPC(int xPos, int yPos, Icon image, Force force) {
 	  super(xPos,yPos);
-	  this.image = image;
-	  this.force = force;
+	  setImage(image);
+	  setForce(force);
   }
 
   public Icon getImage() {
@@ -34,12 +34,8 @@ public class EnemyNPC extends MapItem {
 	  int playerStam = playerForce.getStamina();
 	  
 	  do {
-		  if(force.getAttack() > playerForce.getDefense()) {
-			  playerStam -= (force.getAttack() - playerForce.getDefense());
-		  }
-		  if (playerForce.getAttack() > force.getDefense()) {
-			  enemyStam -= (playerForce.getAttack() - force.getDefense());
-		  }
+		  playerStam -= (force.getAttack() / playerForce.getDefense());
+		  enemyStam -= (playerForce.getAttack() / force.getDefense());
 		  System.out.println("enemyStam = " + enemyStam + ", playerStam = " + playerStam);
 	  } while(enemyStam > 0 && playerStam > 0);
 	  
