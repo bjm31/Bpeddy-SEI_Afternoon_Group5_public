@@ -139,6 +139,26 @@ public class Player {
 		  this.experience -= 100;
 		  addPlayerLevel(1);
 	  }
+	  if (this.getExperience() > 200 && this.getPlayerLevel() == 2)
+	  {
+		  this.experience -= 200;
+		  addPlayerLevel(1);
+	  }
+	  if (this.getExperience() > 300 && this.getPlayerLevel() == 3)
+	  {
+		  this.experience -= 300;
+		  addPlayerLevel(1);
+	  }
+	  if (this.getExperience() > 400 && this.getPlayerLevel() == 4)
+	  {
+		  this.experience -= 400;
+		  addPlayerLevel(1);
+	  }
+	  if (this.getExperience() > 500 && this.getPlayerLevel() == 5)
+	  {
+		  this.experience -= 500;
+		  addPlayerLevel(1);
+	  }
   }
   
   public void addPlayerLevel(int level) {
