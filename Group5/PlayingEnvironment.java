@@ -25,6 +25,12 @@ public class PlayingEnvironment {
   
   private JButton[][] buttons;
   
+  private JFrame playingFrame;
+  
+  private EnemyNPC enemyNPC;
+  
+  private Force enemy;
+  
   ArrayList<Point> enemyPoints = new ArrayList<Point>();
   ArrayList<Point> chestPoints = new ArrayList<Point>();
   ArrayList<Point> allyPoints = new ArrayList<Point>();
@@ -57,7 +63,7 @@ public class PlayingEnvironment {
   
   private void createPlayingFrame() {
 	  
-	  JFrame playingFrame = new JFrame();
+	  playingFrame = new JFrame();
 	  playingFrame.setContentPane(region.getRegionImage());
 	  playingFrame.setSize(getFrameSize());
 	  
@@ -87,7 +93,7 @@ public class PlayingEnvironment {
 	  playingFrame.add(buttonPanel);
 	  
 	  loadMapItems();
-	  
+	  System.out.println(enemyPoints.toString());
 	  playingFrame.setVisible(true);
   }
   
@@ -121,6 +127,16 @@ public class PlayingEnvironment {
 	  return val == 1;
   }
   
+  private boolean checkComplete() {
+	  if (enemyPoints.isEmpty())
+	  {
+		  System.out.println(player.getForceList().toString());
+		  return true;
+	  }
+	  else
+		  return false;
+  }
+  
   private class ButtonListener implements ActionListener {
       public void actionPerformed(ActionEvent e) {
     	  
@@ -133,37 +149,42 @@ public class PlayingEnvironment {
                 	 buttons[current.y][current.x].setIcon(null);
                      current = new Point(c, r);
                      buttons[r][c].setIcon(player.getPlayerPortrait().getIcon());
-                     
                      for (Point p : enemyPoints) {
                     	 //if ((current.x - 1 == p.x && current.y == p.y) || (current.x == p.x && current.y + 1 == p.y)
                     		//	 || (current.x + 1 == p.x && current.y == p.y) || (current.x == p.x && current.y - 1 == p.y)) {
-                    	if (current == p) {	 
-                    	 EnemyNPC enemyNPC = (EnemyNPC) region.findMapItem(p.x, p.y);
-                    		 Force enemy = enemyNPC.fightNPC(player.getForce(0));
+                    	if (current.equals(p)) {	 
+                    		
+                            enemyNPC = (EnemyNPC) region.findMapItem(p.x, p.y);
+                    		enemy = enemyNPC.fightNPC(player.getForce(0));
+                    		enemyPoints.remove(p);
                     		 if (enemy != null) {
                     			 player.getForceList().add(enemy);
                     			 region.getMapItemList().remove(enemyNPC);
-                    			 buttons[p.y][p.x].setIcon(null);
-                    		 }
+                    			 break;
+                    		 } 
                     	 }
                      }
                      
                      for (Point p : chestPoints) {
-                    	 if (current == p) {
+                    	 if (current.equals(p)) {
                     		 MapItem chest = region.findMapItem(current.x, current.y);
                     		 if (chest instanceof CurrencyChest) {
                     			 CurrencyChest currencyChest = (CurrencyChest) chest;
                     			 player.addCurrency(currencyChest.accessChest(region,current));
-                    			 buttons[r][c].setIcon(null);
                     		 }
                     	 }
-                     }
+                     } 
                   } 
                   else {
                      System.out.println("INVALID MOVE");
                   }
                }
             }
+         }
+         if(checkComplete())
+         {
+        	 playingFrame.dispose();
+     		 new ShipHubMenu(frameSize, player);
          }
       }
   }
