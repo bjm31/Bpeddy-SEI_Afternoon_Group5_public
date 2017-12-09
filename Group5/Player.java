@@ -117,7 +117,7 @@ public class Player {
     return experience;
   }
 
-  public void setExperience(int experience) {
+  private void setExperience(int experience) {
 	  this.experience = experience;
   }
 
@@ -134,6 +134,15 @@ public class Player {
   
   public void addExperience(int experience) {
 	  this.experience += experience;
+	  if (this.getExperience() > 100 && this.getPlayerLevel() == 1)
+	  {
+		  this.experience -= 100;
+		  addPlayerLevel(1);
+	  }
+  }
+  
+  public void addPlayerLevel(int level) {
+	  this.level += level;
   }
   
   public void addCurrency(int currency) {
