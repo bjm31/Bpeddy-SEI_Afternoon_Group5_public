@@ -1,4 +1,5 @@
 import java.awt.Dimension;
+import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.File;
@@ -8,6 +9,7 @@ import javax.imageio.ImageIO;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
+import javax.swing.JComponent;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
@@ -29,6 +31,12 @@ public class ForceSelection {
 private Dimension maxButtonSize;
 
 private JPanel backPanel;
+
+private JLabel title;
+
+private Dimension titleSize;
+
+private JPanel buttonPanel;
   
   public ForceSelection(Dimension frameSize, Player player) {
 		this.player = player;
@@ -50,7 +58,8 @@ private JPanel backPanel;
 		forceSelectionFrame.setSize(frameSize);
 
 		forceSelectionFrame.add(addBackPanel());
-	  
+		forceSelectionFrame.add(addTitle());
+		forceSelectionFrame.add(addButtonPanel());
 		System.out.println(forceSelectionFrame.getSize().toString());
 	}
   
@@ -59,6 +68,39 @@ private JPanel backPanel;
 	  forceSelectionFrame.dispose();
 	  new ShipHubMenu(frameSize, player);
   }
+  
+  public JLabel addTitle()
+	{
+		title = new JLabel("Force Selection");
+		title.setFont(new Font(title.getName(), Font.BOLD, 75));
+		title.setForeground(java.awt.Color.white);
+		titleSize = title.getPreferredSize();
+		title.setBounds((int) (frameSize.getWidth() / 2 - titleSize.getWidth() / 2), (int) frameSize.getHeight() / 10,
+				(int) titleSize.getWidth(), (int) titleSize.getHeight());
+		return title;
+	}
+  
+  public JPanel addButtonPanel()
+	{
+	  	buttonPanel = new JPanel();
+	  	buttonPanel.setOpaque(false);
+	  	int amount = 0;
+	  	String buttonName;
+	  	for (Force force : player.getForceList())
+	  	{
+	  		JButton button = new JButton(force.getForceName());
+	  		JLabel label = player.getPlayerPortrait();
+			maxButtonSize = button.getPreferredSize();
+			button.setPreferredSize(maxButtonSize);
+			buttonName = force.getForceName() + "ButtonPressed()";
+			buttonPanel.add(label);
+			buttonPanel.add(button);
+			amount += 6;
+	  	}
+		buttonPanel.setBounds((int) (frameSize.getWidth() / 2 - maxButtonSize.getWidth() / 2), (int) (frameSize.getHeight() / 2 - maxButtonSize.getHeight() / 2),
+				(int) (maxButtonSize.getWidth()), (int) ((maxButtonSize.getHeight())) * amount);
+		return buttonPanel;
+	}
   
   public JPanel addBackPanel()
   {
