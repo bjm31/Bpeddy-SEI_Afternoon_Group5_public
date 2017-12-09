@@ -83,7 +83,7 @@ public class Player {
   }
 
   public ArrayList<Force> getForceList() {
-    return null;
+    return forceList;
   }
   
   public Force getForce(int i) {
@@ -134,5 +134,9 @@ public class Player {
   
   public void addExperience(int experience) {
 	  this.experience += experience;
+  }
+  
+  public void addCurrency(int currency) {
+	  this.currency += currency;
   }
 }
