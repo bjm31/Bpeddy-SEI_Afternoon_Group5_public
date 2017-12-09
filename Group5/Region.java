@@ -75,5 +75,14 @@ public class Region {
   public void setRegionName(String regionName) {
 	this.regionName = regionName;
   }
+  
+  public MapItem findMapItem(int xPos, int yPos) {
+	  for (MapItem item : getMapItemList()) {
+		  if (item.getXPos() == xPos && item.getYPos() == yPos) {
+			  return item;
+		  }
+	  }
+	  return null;
+  }
 
 }
