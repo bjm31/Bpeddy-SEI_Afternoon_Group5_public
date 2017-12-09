@@ -148,6 +148,7 @@ public class PlayingEnvironment {
                     	if (current.equals(p)) {	 
                     		enemy = ((EnemyNPC) region.findMapItem(p.x, p.y)).fightNPC(player.getForce(0));
                     		 if (enemy != null) {
+                    			 player.addExperience(enemy.getAttack() + enemy.getDefense() + enemy.getStamina());
                     			 enemyPoints.remove(p);
                     			 player.getForceList().add(enemy);
                     			 region.getMapItemList().remove(region.findMapItem(p.x, p.y));
