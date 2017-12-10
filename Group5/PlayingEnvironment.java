@@ -19,6 +19,7 @@ public class PlayingEnvironment {
   private Point current;
   
   private JButton[][] buttons;
+  private JButton cellButton;
   
   private JFrame playingFrame;
   
@@ -71,7 +72,7 @@ public class PlayingEnvironment {
 	  
 	  for (int r = 0; r < 10; r++) {
 		  for (int c = 0; c < 20; c++) {
-			  JButton cellButton = new JButton(r + "," + c);
+			  cellButton = new JButton(r + "," + c);
 			  cellButton.setOpaque(false);
 			  cellButton.setContentAreaFilled(false);
 			  buttons[r][c] = cellButton;
@@ -81,17 +82,13 @@ public class PlayingEnvironment {
 		  
 	  }
 	  
-	  current = new Point(19,9);
-	  
 	  playingFrame.add(buttonPanel);
-	  
 	  loadMapItems();
-	  System.out.println(enemyPoints.toString());
 	  playingFrame.setVisible(true);
   }
   
   private void loadMapItems() {
-	  
+	  current = new Point(19,9);
 	  buttons[9][19].setIcon(player.getPlayerPortrait().getIcon()); 
 	  
 	  for (MapItem item : region.getMapItemList()) {
@@ -120,16 +117,6 @@ public class PlayingEnvironment {
 	  return val == 1;
   }
   
-  private boolean checkComplete() {
-	  if (enemyPoints.isEmpty())
-	  {
-		  System.out.println(player.getForceList().toString());
-		  return true;
-	  }
-	  else
-		  return false;
-  }
-  
   private class ButtonListener implements ActionListener {
       public void actionPerformed(ActionEvent e) {
     	  
@@ -148,7 +135,7 @@ public class PlayingEnvironment {
                     	if (current.equals(p)) {	 
                     		enemy = ((EnemyNPC) region.findMapItem(p.x, p.y)).fightNPC(player.getForce(0));
                     		 if (enemy != null) {
-                    			 player.addExperience(enemy.getAttack() + enemy.getDefense() + enemy.getStamina());
+                    			 player.addExperience(enemy.getAttack() + enemy.getDefense() + enemy.getStamina()*2);
                     			 enemyPoints.remove(p);
                     			 player.getForceList().add(enemy);
                     			 region.getMapItemList().remove(region.findMapItem(p.x, p.y));
@@ -161,8 +148,9 @@ public class PlayingEnvironment {
                     	 if (current.equals(p)) {
                     		 MapItem chest = region.findMapItem(current.x, current.y);
                     		 if (chest instanceof CurrencyChest) {
-                    			 CurrencyChest currencyChest = (CurrencyChest) chest;
-                    			 player.addCurrency(currencyChest.accessChest(region,current));
+                    			 player.addCurrency(((CurrencyChest) chest).accessChest(region,current));
+                    			 chestPoints.remove(p);
+                    			 break;
                     		 }
                     	 }
                      } 
@@ -173,7 +161,7 @@ public class PlayingEnvironment {
                }
             }
          }
-         if(checkComplete())
+         if(enemyPoints.isEmpty())
          {
         	 playingFrame.dispose();
      		 new ShipHubMenu(frameSize, player);
