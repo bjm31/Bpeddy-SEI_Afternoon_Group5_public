@@ -86,12 +86,12 @@ public class MissionSelection {
 	  
 	  region = new Region("North America", new JLabel((Icon)new ImageIcon(ImageIO.read(new File ("download.png")))), new ArrayList<Diplomat>(), 
 			  new ArrayList<Force>(), new ArrayList<MapItem>(), new ArrayList<Mission>(), 0);
+	  region.getMapItemList().add(new EnemyNPC(10, 3, new ImageIcon("enemy_force_button.jpg"), new Force("NA Force",3, 3, 12)));
+	  region.getMapItemList().add(new EnemyNPC(10, 4, new ImageIcon("enemy_force_button.jpg"), new Force("NA Force",3, 3, 12)));
+	  region.getMapItemList().add(new EnemyNPC(10, 5, new ImageIcon("enemy_force_button.jpg"), new Force("NA Force",3, 3, 12)));
+	  region.getMapItemList().add(new EnemyNPC(10, 6, new ImageIcon("enemy_force_button.jpg"), new Force("NA Force",3, 3, 12)));
 	  region.getMapItemList().add(new EnemyNPC(10, 7, new ImageIcon("enemy_force_button.jpg"), new Force("NA Force",3, 3, 12)));
-	  region.getMapItemList().add(new EnemyNPC(10, 7, new ImageIcon("enemy_force_button.jpg"), new Force("NA Force",3, 3, 12)));
-	  region.getMapItemList().add(new EnemyNPC(10, 7, new ImageIcon("enemy_force_button.jpg"), new Force("NA Force",3, 3, 12)));
-	  region.getMapItemList().add(new EnemyNPC(10, 7, new ImageIcon("enemy_force_button.jpg"), new Force("NA Force",3, 3, 12)));
-	  region.getMapItemList().add(new EnemyNPC(10, 7, new ImageIcon("enemy_force_button.jpg"), new Force("NA Force",3, 3, 12)));
-	  region.getMapItemList().add(new EnemyNPC(10, 7, new ImageIcon("enemy_force_button.jpg"), new Force("NA Force",3, 3, 12)));
+	  region.getMapItemList().add(new EnemyNPC(10, 8, new ImageIcon("enemy_force_button.jpg"), new Force("NA Force",3, 3, 12)));
 	  region.getMapItemList().add(new CurrencyChest(15, 6, new ImageIcon("map_chest_button.jpg"), 5000));
 	  region.getMissionList().add(new Mission(50, 10000, "Defeat one North American force.", false));
 	  
@@ -105,11 +105,11 @@ public class MissionSelection {
 	  region = new Region("North America", new JLabel((Icon)new ImageIcon(ImageIO.read(new File ("download.png")))), new ArrayList<Diplomat>(), 
 			  new ArrayList<Force>(), new ArrayList<MapItem>(), new ArrayList<Mission>(), 0);
 	  region.getMapItemList().add(new EnemyNPC(10, 3, new ImageIcon("enemy_force_button.jpg"), new Force("NA Force",10, 10, 50)));
-	  region.getMapItemList().add(new EnemyNPC(10, 3, new ImageIcon("enemy_force_button.jpg"), new Force("NA Force",10, 10, 50)));
-	  region.getMapItemList().add(new EnemyNPC(10, 3, new ImageIcon("enemy_force_button.jpg"), new Force("NA Force",10, 10, 50)));
-	  region.getMapItemList().add(new EnemyNPC(10, 3, new ImageIcon("enemy_force_button.jpg"), new Force("NA Force",10, 10, 50)));
-	  region.getMapItemList().add(new EnemyNPC(10, 3, new ImageIcon("enemy_force_button.jpg"), new Force("NA Force",10, 10, 50)));
-	  region.getMapItemList().add(new EnemyNPC(10, 3, new ImageIcon("enemy_force_button.jpg"), new Force("NA Force",10, 10, 50)));
+	  region.getMapItemList().add(new EnemyNPC(10, 4, new ImageIcon("enemy_force_button.jpg"), new Force("NA Force",10, 10, 50)));
+	  region.getMapItemList().add(new EnemyNPC(10, 5, new ImageIcon("enemy_force_button.jpg"), new Force("NA Force",10, 10, 50)));
+	  region.getMapItemList().add(new EnemyNPC(10, 6, new ImageIcon("enemy_force_button.jpg"), new Force("NA Force",10, 10, 50)));
+	  region.getMapItemList().add(new EnemyNPC(10, 7, new ImageIcon("enemy_force_button.jpg"), new Force("NA Force",10, 10, 50)));
+	  region.getMapItemList().add(new EnemyNPC(10, 8, new ImageIcon("enemy_force_button.jpg"), new Force("NA Force",10, 10, 50)));
 	  region.getMapItemList().add(new CurrencyChest(15, 6, new ImageIcon("map_chest_button.jpg"), 5000));
 	  region.getMissionList().add(new Mission(50, 10000, "Defeat one North American force.", false));
 	  
