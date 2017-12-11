@@ -25,6 +25,8 @@ public class PlayingEnvironment {
   
   private Force enemy;
   
+  private int experience;
+  
   ArrayList<Point> enemyPoints = new ArrayList<Point>();
   ArrayList<Point> chestPoints = new ArrayList<Point>();
   ArrayList<Point> allyPoints = new ArrayList<Point>();
@@ -134,13 +136,20 @@ public class PlayingEnvironment {
                     		//	 || (current.x + 1 == p.x && current.y == p.y) || (current.x == p.x && current.y - 1 == p.y)) {
                     	if (current.equals(p)) {	 
                     		enemy = ((EnemyNPC) region.findMapItem(p.x, p.y)).fightNPC(player.getForce(0));
-                    		 if (enemy != null) {
-                    			 player.addExperience(enemy.getAttack() + enemy.getDefense() + enemy.getStamina()*2);
+                    		System.out.println(player.getForce(0));
+                    		System.out.println(enemy);
+                    		System.out.println((EnemyNPC) region.findMapItem(p.x, p.y));
+                    		 if (!(enemy.equals(player.getForce(0)))) {
+                    			 experience += enemy.getAttack() + enemy.getDefense() + enemy.getStamina()*2;
                     			 enemyPoints.remove(p);
                     			 player.getForceList().add(enemy);
                     			 region.getMapItemList().remove(region.findMapItem(p.x, p.y));
                     			 break;
                     		 } 
+                    		 else {
+                    			 playingFrame.dispose();
+                         		 new ShipHubMenu(frameSize, player);
+                    		 }
                     	 }
                      }
                      
@@ -163,6 +172,7 @@ public class PlayingEnvironment {
          }
          if(enemyPoints.isEmpty())
          {
+        	 player.addExperience(experience);
         	 playingFrame.dispose();
      		 new ShipHubMenu(frameSize, player);
          }
