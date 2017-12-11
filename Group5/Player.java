@@ -1,9 +1,4 @@
-import java.io.File;
 import java.util.ArrayList;
-
-import javax.imageio.ImageIO;
-import javax.swing.Icon;
-import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 
 public class Player {
