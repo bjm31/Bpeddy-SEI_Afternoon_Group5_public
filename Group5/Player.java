@@ -21,10 +21,10 @@ public class Player {
 
   public Player(JLabel playerPortrait) {
 	  
-	  setPlayerPortrait(playerPortrait);
-	  setPlayerLevel(1);
-	  setPlayerExperience(0);
-	  setPlayerCurrency(0);
+	  this.setPlayerPortrait(playerPortrait);
+	  this.setPlayerLevel(1);
+	  this.setPlayerExperience(0);
+	  this.setPlayerCurrency(0);
 	  
 	  forceList.add(new Force("Beginner Force", 10, 10, 100));
 	  
