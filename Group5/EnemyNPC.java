@@ -42,8 +42,10 @@ public class EnemyNPC extends MapItem {
 	  if (enemyStam <= 0) {
 		  return force;
 	  }
-	  
-	  return null;
+	  else
+	  {
+		  return playerForce;
+	  }
   }
   
 
