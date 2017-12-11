@@ -4,12 +4,10 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.File;
 import java.io.IOException;
-
 import javax.imageio.ImageIO;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
-import javax.swing.JComponent;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
@@ -85,14 +83,12 @@ private JPanel buttonPanel;
 	  	buttonPanel = new JPanel();
 	  	buttonPanel.setOpaque(false);
 	  	int amount = 0;
-	  	String buttonName;
 	  	for (Force force : player.getForceList())
 	  	{
 	  		JButton button = new JButton(force.getForceName());
 	  		JLabel label = player.getPlayerPortrait();
 			maxButtonSize = button.getPreferredSize();
 			button.setPreferredSize(maxButtonSize);
-			buttonName = force.getForceName() + "ButtonPressed()";
 			buttonPanel.add(label);
 			buttonPanel.add(button);
 			amount += 6;
