@@ -25,6 +25,7 @@ public class PlayingEnvironment {
   
   private Force enemy;
   
+  private int currency;
   private int experience;
   
   ArrayList<Point> enemyPoints = new ArrayList<Point>();
@@ -136,9 +137,6 @@ public class PlayingEnvironment {
                     		//	 || (current.x + 1 == p.x && current.y == p.y) || (current.x == p.x && current.y - 1 == p.y)) {
                     	if (current.equals(p)) {	 
                     		enemy = ((EnemyNPC) region.findMapItem(p.x, p.y)).fightNPC(player.getForce(0));
-                    		System.out.println(player.getForce(0));
-                    		System.out.println(enemy);
-                    		System.out.println((EnemyNPC) region.findMapItem(p.x, p.y));
                     		 if (!(enemy.equals(player.getForce(0)))) {
                     			 experience += enemy.getAttack() + enemy.getDefense() + enemy.getStamina()*2;
                     			 enemyPoints.remove(p);
@@ -157,7 +155,7 @@ public class PlayingEnvironment {
                     	 if (current.equals(p)) {
                     		 MapItem chest = region.findMapItem(current.x, current.y);
                     		 if (chest instanceof CurrencyChest) {
-                    			 player.addCurrency(((CurrencyChest) chest).accessChest(region,current));
+                    			 currency = ((CurrencyChest) chest).accessChest(region,current);
                     			 chestPoints.remove(p);
                     			 break;
                     		 }
@@ -172,6 +170,7 @@ public class PlayingEnvironment {
          }
          if(enemyPoints.isEmpty())
          {
+        	 player.addCurrency(currency);
         	 player.addExperience(experience);
         	 playingFrame.dispose();
      		 new ShipHubMenu(frameSize, player);
