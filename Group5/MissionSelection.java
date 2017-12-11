@@ -102,7 +102,7 @@ public class MissionSelection {
   {
 	  missionSelectionFrame.dispose();
 	  
-	  region = new Region("North America", new JLabel((Icon)new ImageIcon(ImageIO.read(new File ("download.png")))), new ArrayList<Diplomat>(), 
+	  region = new Region("South America", new JLabel((Icon)new ImageIcon(ImageIO.read(new File ("download.png")))), new ArrayList<Diplomat>(), 
 			  new ArrayList<Force>(), new ArrayList<MapItem>(), new ArrayList<Mission>(), 0);
 	  region.getMapItemList().add(new EnemyNPC(10, 3, new ImageIcon("enemy_force_button.jpg"), new Force("NA Force",10, 10, 50)));
 	  region.getMapItemList().add(new EnemyNPC(10, 4, new ImageIcon("enemy_force_button.jpg"), new Force("NA Force",10, 10, 50)));
@@ -116,22 +116,58 @@ public class MissionSelection {
 	  new PlayingEnvironment(player, region, frameSize);
   }
   
-  public void region3Mission1ButtonPressed()
+  public void region3Mission1ButtonPressed() throws IOException
   {
 	  missionSelectionFrame.dispose();
-	  new MissionSelection(frameSize, player);
+	  
+	  region = new Region("Africa", new JLabel((Icon)new ImageIcon(ImageIO.read(new File ("download.png")))), new ArrayList<Diplomat>(), 
+			  new ArrayList<Force>(), new ArrayList<MapItem>(), new ArrayList<Mission>(), 0);
+	  region.getMapItemList().add(new EnemyNPC(10, 3, new ImageIcon("enemy_force_button.jpg"), new Force("NA Force",10, 10, 50)));
+	  region.getMapItemList().add(new EnemyNPC(10, 4, new ImageIcon("enemy_force_button.jpg"), new Force("NA Force",10, 10, 50)));
+	  region.getMapItemList().add(new EnemyNPC(10, 5, new ImageIcon("enemy_force_button.jpg"), new Force("NA Force",10, 10, 50)));
+	  region.getMapItemList().add(new EnemyNPC(10, 6, new ImageIcon("enemy_force_button.jpg"), new Force("NA Force",10, 10, 50)));
+	  region.getMapItemList().add(new EnemyNPC(10, 7, new ImageIcon("enemy_force_button.jpg"), new Force("NA Force",10, 10, 50)));
+	  region.getMapItemList().add(new EnemyNPC(10, 8, new ImageIcon("enemy_force_button.jpg"), new Force("NA Force",10, 10, 50)));
+	  region.getMapItemList().add(new CurrencyChest(15, 6, new ImageIcon("map_chest_button.jpg"), 5000));
+	  region.getMissionList().add(new Mission(50, 10000, "Defeat one North American force.", false));
+	  
+	  new PlayingEnvironment(player, region, frameSize);
   }
   
-  public void region4Mission1ButtonPressed()
+  public void region4Mission1ButtonPressed() throws IOException
   {
 	  missionSelectionFrame.dispose();
-	  new MissionSelection(frameSize, player);
+	  
+	  region = new Region("Russia", new JLabel((Icon)new ImageIcon(ImageIO.read(new File ("download.png")))), new ArrayList<Diplomat>(), 
+			  new ArrayList<Force>(), new ArrayList<MapItem>(), new ArrayList<Mission>(), 0);
+	  region.getMapItemList().add(new EnemyNPC(10, 3, new ImageIcon("enemy_force_button.jpg"), new Force("NA Force",10, 10, 50)));
+	  region.getMapItemList().add(new EnemyNPC(10, 4, new ImageIcon("enemy_force_button.jpg"), new Force("NA Force",10, 10, 50)));
+	  region.getMapItemList().add(new EnemyNPC(10, 5, new ImageIcon("enemy_force_button.jpg"), new Force("NA Force",10, 10, 50)));
+	  region.getMapItemList().add(new EnemyNPC(10, 6, new ImageIcon("enemy_force_button.jpg"), new Force("NA Force",10, 10, 50)));
+	  region.getMapItemList().add(new EnemyNPC(10, 7, new ImageIcon("enemy_force_button.jpg"), new Force("NA Force",10, 10, 50)));
+	  region.getMapItemList().add(new EnemyNPC(10, 8, new ImageIcon("enemy_force_button.jpg"), new Force("NA Force",10, 10, 50)));
+	  region.getMapItemList().add(new CurrencyChest(15, 6, new ImageIcon("map_chest_button.jpg"), 5000));
+	  region.getMissionList().add(new Mission(50, 10000, "Defeat one North American force.", false));
+	  
+	  new PlayingEnvironment(player, region, frameSize);
   }
   
-  public void region5Mission1ButtonPressed()
+  public void region5Mission1ButtonPressed() throws IOException
   {
 	  missionSelectionFrame.dispose();
-	  new MissionSelection(frameSize, player);
+	  
+	  region = new Region("Australia", new JLabel((Icon)new ImageIcon(ImageIO.read(new File ("download.png")))), new ArrayList<Diplomat>(), 
+			  new ArrayList<Force>(), new ArrayList<MapItem>(), new ArrayList<Mission>(), 0);
+	  region.getMapItemList().add(new EnemyNPC(10, 3, new ImageIcon("enemy_force_button.jpg"), new Force("NA Force",10, 10, 50)));
+	  region.getMapItemList().add(new EnemyNPC(10, 4, new ImageIcon("enemy_force_button.jpg"), new Force("NA Force",10, 10, 50)));
+	  region.getMapItemList().add(new EnemyNPC(10, 5, new ImageIcon("enemy_force_button.jpg"), new Force("NA Force",10, 10, 50)));
+	  region.getMapItemList().add(new EnemyNPC(10, 6, new ImageIcon("enemy_force_button.jpg"), new Force("NA Force",10, 10, 50)));
+	  region.getMapItemList().add(new EnemyNPC(10, 7, new ImageIcon("enemy_force_button.jpg"), new Force("NA Force",10, 10, 50)));
+	  region.getMapItemList().add(new EnemyNPC(10, 8, new ImageIcon("enemy_force_button.jpg"), new Force("NA Force",10, 10, 50)));
+	  region.getMapItemList().add(new CurrencyChest(15, 6, new ImageIcon("map_chest_button.jpg"), 5000));
+	  region.getMissionList().add(new Mission(50, 10000, "Defeat one North American force.", false));
+	  
+	  new PlayingEnvironment(player, region, frameSize);
   }
   
   public void backButtonPressed()
@@ -211,7 +247,12 @@ public class MissionSelection {
 	  maxButtonSize = region3Mission1Button.getPreferredSize();
 	  region3Mission1Button.addActionListener(new ActionListener() {
 		  public void actionPerformed(ActionEvent e) {
-			  region3Mission1ButtonPressed(); 
+			  try {
+				  region2Mission1ButtonPressed(); 
+			  }
+			  catch (IOException e1) {
+		  		e1.printStackTrace();
+	  			}
 	  		} 
 	  } );
 	  region3MissionPanel = new JPanel();
@@ -232,7 +273,12 @@ public class MissionSelection {
 	  maxButtonSize = region4Mission1Button.getPreferredSize();
 	  region4Mission1Button.addActionListener(new ActionListener() {
 		  public void actionPerformed(ActionEvent e) {
-			  region4Mission1ButtonPressed(); 
+			  try {
+				  region2Mission1ButtonPressed(); 
+			  }
+			  catch (IOException e1) {
+		  		e1.printStackTrace();
+	  			}
 	  		} 
 	  } );
 	  region4MissionPanel = new JPanel();
@@ -253,7 +299,12 @@ public class MissionSelection {
 	  maxButtonSize = region5Mission1Button.getPreferredSize();
 	  region5Mission1Button.addActionListener(new ActionListener() {
 		  public void actionPerformed(ActionEvent e) {
-			  region5Mission1ButtonPressed(); 
+			  try {
+				  region2Mission1ButtonPressed(); 
+			  }
+			  catch (IOException e1) {
+		  		e1.printStackTrace();
+	  			} 
 	  		} 
 	  } );
 	  region5MissionPanel = new JPanel();
