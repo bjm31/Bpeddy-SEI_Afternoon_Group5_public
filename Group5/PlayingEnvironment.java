@@ -136,7 +136,7 @@ public class PlayingEnvironment {
                     	 //if ((current.x - 1 == p.x && current.y == p.y) || (current.x == p.x && current.y + 1 == p.y)
                     		//	 || (current.x + 1 == p.x && current.y == p.y) || (current.x == p.x && current.y - 1 == p.y)) {
                     	if (current.equals(p)) {	 
-                    		enemy = ((EnemyNPC) region.findMapItem(p.x, p.y)).fightNPC(player.getForce(0));
+                    		enemy =  (((EnemyNPC)region.findMapItem(p.x, p.y)).getForce()).fightNPC(player.getForce(0));
                     		 if (!(enemy.equals(player.getForce(0)))) {
                     			 experience += enemy.getExperience();
                     			 enemyPoints.remove(p);
