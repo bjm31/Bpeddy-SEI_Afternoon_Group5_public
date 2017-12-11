@@ -6,13 +6,16 @@ public class Force {
 
   private int stamina;
   
+  private int experience;
+  
   private String name;
 
   public Force(String name, int attack, int defense, int stamina) {
-	  setForceName(name);
-	  setAttack(attack);
-	  setDefense(defense);
-	  setStamina(stamina);
+	  this.setForceName(name);
+	  this.setAttack(attack);
+	  this.setDefense(defense);
+	  this.setStamina(stamina);
+	  this.setExperience();
   }
 
   private void setForceName(String name) {
@@ -45,6 +48,14 @@ public class Force {
 
   private void setStamina(int stamina) {
 	  this.stamina = stamina;
+  }
+  
+  public int getExperience() {
+	  return this.experience;
+  }
+  
+  public void setExperience() {
+	  this.experience = ((this.getAttack() + this.getDefense() + this.getStamina())*2);
   }
 
 }
