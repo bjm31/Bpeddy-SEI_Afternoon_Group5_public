@@ -1,9 +1,5 @@
 import java.awt.Point;
-import java.util.ArrayList;
-
 import javax.swing.Icon;
-import javax.swing.JButton;
-import javax.swing.JLabel;
 
 public class CurrencyChest extends MapItem {
 
