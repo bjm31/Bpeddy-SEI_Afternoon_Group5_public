@@ -57,5 +57,24 @@ public class Force {
   public void setExperience() {
 	  this.experience = ((this.getAttack() + this.getDefense() + this.getStamina())*2);
   }
+  
+  public Force fightNPC(Force opposingForce) {
+	  int stam = this.getStamina();
+	  int opposingStam = opposingForce.getStamina();
+	  
+	  do {
+		  opposingStam -= (this.getAttack() / opposingForce.getDefense());
+		  stam -= (opposingForce.getAttack() / this.getDefense());
+		  System.out.println("enemyStam = " + stam + ", playerStam = " + opposingStam);
+	  } while(opposingStam > 0 && stam > 0);
+	  
+	  if (stam <= 0) {
+		  return this;
+	  }
+	  else
+	  {
+		  return opposingForce;
+	  }
+  }
 
 }
