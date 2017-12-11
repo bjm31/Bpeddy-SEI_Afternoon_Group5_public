@@ -1,5 +1,4 @@
 import javax.swing.Icon;
-import javax.swing.JLabel;
 
 public class MapItem {
 
